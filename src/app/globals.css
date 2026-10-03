@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Ultra-Premium Tri-Color Palette: Dark Olive, Pure White, Crisp Black/Charcoal */
+    --color-bg-primary: #FFFFFF;
+    --color-bg-subtle: #F9FAF8;
+    --color-bg-olive-tint: #F0F4F1;
+    --color-bg-olive-card: #E8F0EA;
+
+    /* Dark Olive Tones */
+    --color-olive-darkest: #121C15;
+    --color-olive-deep: #1A281E;
+    --color-olive-medium: #263A2D;
+    --color-olive-surface: #344E3E;
+    --color-olive-accent: #446450;
+    --color-olive-light: #5A7E68;
+    --color-olive-border: #D8E4DC;
+    --color-olive-soft: #E5EDE8;
+
+    /* Pure White & Studio Porcelain */
+    --color-white: #FFFFFF;
+    --color-porcelain: #FBFDFB;
+
+    /* Crisp Black & Charcoal for Typography */
+    --color-text-headline: #0C120E;
+    --color-text-body: #1F2C24;
+    --color-text-muted: #52665A;
+    --color-text-subtle: #798E81;
+
+    /* Vibrant Micro-Accents */
+    --color-accent-emerald: #10B981;
+    --color-accent-vibrant: #059669;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FFFFFF;
+    color: #0C120E;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #0C120E;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    color: #0C120E;
+    letter-spacing: -0.02em;
+  }
+
+  /* Accessibility focus ring */
+  *:focus-visible {
+    outline: 2px solid #263A2D;
+    outline-offset: 2px;
+  }
+
+  /* Refined Olive Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F9FAF8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C2D5C8;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #263A2D;
+  }
+}
+
+/* Custom Typography Utilities */
+.font-editorial {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-modern {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism & Subtle Accents */
+.glass-panel-olive {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(216, 228, 220, 0.9);
+}
+
+.glass-panel-dark-olive {
+  background: rgba(26, 40, 30, 0.96);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(52, 78, 62, 0.6);
+}
+
+/* Custom Keyframes */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin-slower 36s linear infinite;
+}
+
+.animate-float {
+  animation: float-gentle 6s ease-in-out infinite;
+}
