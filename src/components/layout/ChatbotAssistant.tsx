@@ -337,7 +337,8 @@ export const ChatbotAssistant: React.FC = () => {
           .slice(-8)
           .map((m) => ({ role: m.role, content: m.content }));
 
-        const res = await fetch('/api/chat', {
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || '';
+        const res = await fetch(`${backendUrl}/api/chat`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ messages: history }),

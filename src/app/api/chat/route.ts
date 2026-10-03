@@ -1,5 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
 // ─────────────────────────────────────────────────
 // RATE LIMITING — In-memory store (per-server-instance)
 // Protects server from abuse / DoS
@@ -474,27 +484,27 @@ export async function POST(req: NextRequest) {
           error: 'Rate limit reached. Please wait a moment before sending more messages.',
           resetIn: Math.ceil(rateCheck.resetIn / 1000),
         },
-        { status: 429 }
+        { status: 429, headers: corsHeaders }
       );
     }
 
     // 2. Validate Request Body
     const body = await req.json().catch(() => null);
     if (!body || !Array.isArray(body.messages) || body.messages.length === 0) {
-      return NextResponse.json({ error: 'Valid messages array is required.' }, { status: 400 });
+      return NextResponse.json({ error: 'Valid messages array is required.' }, { status: 400, headers: corsHeaders });
     }
 
     const messages = body.messages as ChatHistoryItem[];
     const lastMessage = messages[messages.length - 1];
 
     if (!lastMessage || typeof lastMessage.content !== 'string' || !lastMessage.content.trim()) {
-      return NextResponse.json({ error: 'Message content cannot be empty.' }, { status: 400 });
+      return NextResponse.json({ error: 'Message content cannot be empty.' }, { status: 400, headers: corsHeaders });
     }
 
     if (lastMessage.content.length > MAX_MESSAGE_LENGTH) {
       return NextResponse.json(
         { error: `Message is too long. Maximum allowed is ${MAX_MESSAGE_LENGTH} characters.` },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -533,11 +543,14 @@ export async function POST(req: NextRequest) {
             // Strip any <think> tags from thinking models
             aiText = aiText.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
             if (aiText.length > 0) {
-              return NextResponse.json({
-                response: aiText,
-                model: activeServer.model,
-                remaining: rateCheck.remaining,
-              });
+              return NextResponse.json(
+                {
+                  response: aiText,
+                  model: activeServer.model,
+                  remaining: rateCheck.remaining,
+                },
+                { headers: corsHeaders }
+              );
             }
           }
         }
@@ -548,16 +561,19 @@ export async function POST(req: NextRequest) {
 
     // 4. SECONDARY ATTEMPT: Dynamic Agent Engine (Non-repetitive, context-aware, instant)
     const agentResponse = generateDynamicAgentResponse(userText, messages);
-    return NextResponse.json({
-      response: agentResponse,
-      model: 'edgelab-agent-engine',
-      remaining: rateCheck.remaining,
-    });
+    return NextResponse.json(
+      {
+        response: agentResponse,
+        model: 'edgelab-agent-engine',
+        remaining: rateCheck.remaining,
+      },
+      { headers: corsHeaders }
+    );
   } catch (error) {
     console.error('Chat API Error:', error);
     return NextResponse.json(
       { error: 'An unexpected error occurred. Please connect directly on WhatsApp at +91 60001 56107.' },
-      { status: 500 }
+      { status: 500, headers: corsHeaders }
     );
   }
 }
