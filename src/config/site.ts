@@ -1,6 +1,6 @@
 // EdgeLab Configuration & Content Directory
 // Single configurable site URL variable so the domain can be changed easily after purchase.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://edgelab.in';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://edge-lab.dev';
 
 export const BRAND = {
   name: 'EdgeLab',

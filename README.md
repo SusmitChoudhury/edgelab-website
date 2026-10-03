@@ -17,7 +17,7 @@
   </p>
 
   <p align="center">
-    <a href="https://edgelab.in">Official Domain</a> •
+    <a href="https://edge-lab.dev">Official Domain</a> •
     <a href="https://wa.me/916000156107?text=Hi%20EdgeLab%2C%20I%20would%20like%20to%20discuss%20a%20project.">Direct WhatsApp</a> •
     <a href="https://instagram.com/edgelab.work">Instagram @edgelab.work</a> •
     <a href="mailto:edgelab.work@gmail.com">edgelab.work@gmail.com</a>
@@ -324,7 +324,7 @@ For new project partnerships, client scoping, or press inquiries:
 - **WhatsApp & Phone**: [+91 60001 56107](https://wa.me/916000156107?text=Hi%20EdgeLab%2C%20I%20would%20like%20to%20discuss%20a%20project.)
 - **Official Email**: [edgelab.work@gmail.com](mailto:edgelab.work@gmail.com)
 - **Instagram**: [@edgelab.work](https://instagram.com/edgelab.work)
-- **Official Domain**: [https://edgelab.in](https://edgelab.in)
+- **Official Domain**: [https://edge-lab.dev](https://edge-lab.dev)
 
 <br />
 

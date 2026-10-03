@@ -51,7 +51,7 @@ Official Contact:
 - WhatsApp & Phone: +91 60001 56107
 - Email: edgelab.work@gmail.com
 - Instagram: @edgelab.work (https://instagram.com/edgelab.work)
-- Official Website: https://edgelab.in
+- Official Website: https://edge-lab.dev
 
 CORE CAPABILITIES:
 1. Bespoke Web Engineering: Next.js 16, React 19, Tailwind CSS, 99/100 Google PageSpeed, sub-second edge loading, zero template bloat.
