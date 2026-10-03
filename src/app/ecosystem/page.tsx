@@ -275,7 +275,7 @@ export default function EcosystemPage() {
                   </div>
 
                   <div>
-                    <div className="text-xs font-mono text-[#263A2D] font-bold">Station {pillar.stationNum} // {pillar.category}</div>
+                    <div className="text-xs font-mono text-[#263A2D] font-bold">Station {pillar.stationNum} • {pillar.category}</div>
                     <h3 className="text-lg font-serif font-bold text-[#0C120E] mt-1">{pillar.name}</h3>
                     <p className="text-xs text-[#52665A] mt-2 leading-relaxed">{pillar.clientPerspective}</p>
                   </div>

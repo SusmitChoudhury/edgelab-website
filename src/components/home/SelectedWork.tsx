@@ -143,7 +143,7 @@ export const SelectedWork: React.FC = () => {
                       : 'text-[#52665A] hover:text-[#0C120E]'
                   }`}
                 >
-                  {cs.num} // {cs.title.split(' ')[0]}
+                  {cs.num} • {cs.title.split(' ')[0]}
                 </button>
               );
             })}

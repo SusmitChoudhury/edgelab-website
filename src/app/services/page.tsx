@@ -214,7 +214,7 @@ export default function ServicesPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#1A281E] text-[#A7F3D0] text-[10px] font-mono font-bold tracking-wider uppercase shadow-2xs">
-                    {service.num} // {service.tag}
+                    {service.num} • {service.tag}
                   </div>
                 </div>
 

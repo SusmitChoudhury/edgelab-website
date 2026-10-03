@@ -46,14 +46,10 @@ function ContactFormInner() {
   const [selectedServices, setSelectedServices] = useState<string[]>(['Website Engineering']);
   const [budget, setBudget] = useState(budgetTiers[1]);
   const [timeline, setTimeline] = useState('Standard (2 to 4 weeks)');
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(
+    selectedPackageFromQuery ? `Interested in package: ${selectedPackageFromQuery}` : ''
+  );
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    if (selectedPackageFromQuery) {
-      setMessage(`Interested in package: ${selectedPackageFromQuery}`);
-    }
-  }, [selectedPackageFromQuery]);
 
   const toggleService = (srv: string) => {
     if (selectedServices.includes(srv)) {

@@ -190,7 +190,7 @@ export const ServicesSystem: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                     <span className="text-xs font-mono uppercase tracking-widest text-[#059669] font-bold">
-                      {active.num} // {active.name} Artifact
+                      {active.num} • {active.name} Artifact
                     </span>
                   </div>
                   <span className="text-[11px] font-mono text-[#047857] bg-[#E8F5EE] px-3 py-1 rounded-full border border-[#A7F3D0] font-semibold">
