@@ -23,6 +23,7 @@ import {
   Smartphone
 } from 'lucide-react';
 import { getWhatsAppUrl } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
 
 interface ServiceItem {
   id: string;
@@ -36,6 +37,7 @@ interface ServiceItem {
 }
 
 export const ServicesSystem: React.FC = () => {
+  const { currency } = useCurrency();
   const services: ServiceItem[] = [
     {
       id: 'web',
@@ -260,7 +262,9 @@ export const ServicesSystem: React.FC = () => {
                         <div className="text-lg font-serif font-bold text-[#0B281B]">
                           Artisanal Cashmere & Silk Ensemble
                         </div>
-                        <div className="text-sm font-mono text-[#047857] font-semibold">₹34,000 INR</div>
+                        <div className="text-sm font-mono text-[#047857] font-semibold">
+                          {currency === 'USD' ? '$420 USD' : '₹34,000 INR'}
+                        </div>
                         <p className="text-xs text-[#5C7468] leading-tight">
                           Editorial storytelling with high-resolution fabric texture zoom and direct UPI/Card integration.
                         </p>

@@ -3,11 +3,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { Check, ArrowRight, ShieldCheck } from 'lucide-react';
-import { PRICING_TIERS, getWhatsAppUrl } from '@/config/site';
+import { getWhatsAppUrl } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
+import { PricingSectionObserver } from '@/components/ui/PricingSectionObserver';
 
 export const PricingPreviewSection: React.FC = () => {
+  const { pricingTiers, cloudflarePromo, monthlyRunningCost } = useCurrency();
+
   return (
-    <section className="py-20 sm:py-28 bg-[#F5F7FC] text-[#212413] border-b border-[#DDE2EE]">
+    <PricingSectionObserver id="pricing">
+      <section className="py-20 sm:py-28 bg-[#F5F7FC] text-[#212413] border-b border-[#DDE2EE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -36,7 +41,7 @@ export const PricingPreviewSection: React.FC = () => {
 
         {/* 4 Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-12">
-          {PRICING_TIERS.map((tier) => {
+          {pricingTiers.map((tier) => {
             const isHighlighted = tier.highlighted;
             return (
               <div
@@ -103,7 +108,7 @@ export const PricingPreviewSection: React.FC = () => {
 
                     {isHighlighted && (
                       <div className="mt-2 text-[11px] font-mono text-[#F6821F] font-semibold">
-                        CF Promo: ₹12,299.18 (Save 18%)
+                        CF Promo: {cloudflarePromo.discountedPriceFormatted} (Save {cloudflarePromo.percent}%)
                       </div>
                     )}
                   </div>
@@ -163,7 +168,7 @@ export const PricingPreviewSection: React.FC = () => {
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#AD8820] shrink-0" />
             <span className="font-semibold text-[#212413]">
-              Running costs begin after the included period at standard ₹1,699/month.
+              Running costs begin after the included period at standard {monthlyRunningCost}/month.
             </span>
           </div>
 
@@ -177,5 +182,6 @@ export const PricingPreviewSection: React.FC = () => {
 
       </div>
     </section>
+    </PricingSectionObserver>
   );
 };

@@ -16,10 +16,25 @@ import {
 } from 'lucide-react';
 import { InstagramIcon } from '@/components/ui/InstagramIcon';
 import { CONTACT, getWhatsAppUrl } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
 
 function ContactFormInner() {
   const searchParams = useSearchParams();
   const selectedPackageFromQuery = searchParams.get('package');
+  const { pricingTiers } = useCurrency();
+
+  const starterTier = pricingTiers.find((t) => t.id === 'starter');
+  const businessPlusTier = pricingTiers.find((t) => t.id === 'business-plus');
+  const edgeCareTier = pricingTiers.find((t) => t.id === 'edgecare');
+  const ultimateTier = pricingTiers.find((t) => t.id === 'ultimate');
+
+  const budgetTiers = [
+    `Starter (${starterTier?.price || '$399'} one-time)`,
+    `Business Plus (${businessPlusTier?.price || '$899'} — 3 Mo Free Care)`,
+    `EdgeCare (${edgeCareTier?.price || '$1,499'} — 6 Mo Free Care)`,
+    `EdgeLab Ultimate (${ultimateTier?.price || '$2,499'} — Lifetime Free Care)`,
+    'Custom Project Scope',
+  ];
 
   const selectableServices = [
     'Website Design & Development',
@@ -34,25 +49,27 @@ function ContactFormInner() {
     'Website Maintenance & Technical Support',
   ];
 
-  const budgetTiers = [
-    'Starter (₹4,999 one-time)',
-    'Business Plus (₹14,999 — 3 Mo Free Care)',
-    'EdgeCare (₹24,999 — 6 Mo Free Care)',
-    'EdgeLab Ultimate (₹37,999 — Lifetime Free Care)',
-    'Custom Project Scope',
-  ];
-
   const [name, setName] = useState('');
   const [business, setBusiness] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [selectedServices, setSelectedServices] = useState<string[]>(['Website Engineering']);
-  const [budget, setBudget] = useState(budgetTiers[1]);
+  const [selectedBudgetIndex, setSelectedBudgetIndex] = useState(1);
+  const budget = budgetTiers[selectedBudgetIndex] || budgetTiers[1];
   const [timeline, setTimeline] = useState('Standard (2 to 4 weeks)');
   const [message, setMessage] = useState(
     selectedPackageFromQuery ? `Interested in package: ${selectedPackageFromQuery}` : ''
   );
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (!selectedPackageFromQuery) return;
+    const lower = selectedPackageFromQuery.toLowerCase();
+    if (lower.includes('starter')) setSelectedBudgetIndex(0);
+    else if (lower.includes('business') || lower.includes('plus')) setSelectedBudgetIndex(1);
+    else if (lower.includes('edgecare') || lower.includes('care')) setSelectedBudgetIndex(2);
+    else if (lower.includes('ultimate')) setSelectedBudgetIndex(3);
+  }, [selectedPackageFromQuery]);
 
   const toggleService = (srv: string) => {
     if (selectedServices.includes(srv)) {
@@ -308,18 +325,18 @@ Hi EdgeLab, I have submitted our project brief and would like to connect with a 
                     Target Investment Bracket:
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    {budgetTiers.map((b) => (
+                    {budgetTiers.map((b, idx) => (
                       <button
                         type="button"
                         key={b}
-                        onClick={() => setBudget(b)}
+                        onClick={() => setSelectedBudgetIndex(idx)}
                         className={`p-2.5 rounded-xl text-center text-xs font-mono transition-all border ${
-                          budget === b
+                          selectedBudgetIndex === idx
                             ? 'bg-[#1A281E] text-white border-[#1A281E] font-bold'
                             : 'bg-white text-[#52665A] border-[#D8E4DC] hover:border-[#1A281E]'
                         }`}
                       >
-                        {b.split('(')[0]}
+                        {b.split('(')[0].trim()}
                       </button>
                     ))}
                   </div>

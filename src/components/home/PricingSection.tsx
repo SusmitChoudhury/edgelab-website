@@ -1,10 +1,14 @@
 'use client';
 
 import React from 'react';
-import { PRICING_TIERS, getWhatsAppUrl } from '@/config/site';
+import { getWhatsAppUrl } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
+import { PricingTierData } from '@/config/currency';
 import { Check, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export const PricingSection: React.FC = () => {
+  const { pricingTiers } = useCurrency();
+
   return (
     <section className="py-24 md:py-32 bg-[#F6FAF7] border-y border-[#E2EDE6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +27,7 @@ export const PricingSection: React.FC = () => {
 
         {/* 4-Tier Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-12">
-          {PRICING_TIERS.map((tier, idx) => {
+          {pricingTiers.map((tier: PricingTierData, idx: number) => {
             return (
               <div
                 key={tier.name}
@@ -72,7 +76,7 @@ export const PricingSection: React.FC = () => {
                   </p>
 
                   <div className="space-y-3 pt-4 border-t border-[#DFEDE4]/30 mb-8">
-                    {tier.features.map((f, fIdx) => (
+                    {tier.features.map((f: string, fIdx: number) => (
                       <div key={fIdx} className="flex items-start gap-2.5 text-xs">
                         <Check
                           className={`w-4 h-4 shrink-0 mt-0.5 ${

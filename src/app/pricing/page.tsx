@@ -12,20 +12,28 @@ import {
   Info,
   Server
 } from 'lucide-react';
-import { PRICING_TIERS, getWhatsAppUrl, CONTACT } from '@/config/site';
+import { getWhatsAppUrl, CONTACT } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
+import { PricingSectionObserver } from '@/components/ui/PricingSectionObserver';
 
 export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [businessPlusCloudflareFree, setBusinessPlusCloudflareFree] = useState<boolean>(false);
+  const { currency, pricingTiers, cloudflarePromo, monthlyRunningCost } = useCurrency();
+
+  const starterTier = pricingTiers.find((t) => t.id === 'starter');
+  const businessPlusTier = pricingTiers.find((t) => t.id === 'business-plus');
+  const edgeCareTier = pricingTiers.find((t) => t.id === 'edgecare');
+  const ultimateTier = pricingTiers.find((t) => t.id === 'ultimate');
 
   const faqs = [
     {
       q: 'How does the included running cost benefit work?',
-      a: 'Business Plus includes your first 3 months of running cost, EdgeCare includes your first 6 months, and EdgeLab Ultimate includes lifetime running cost under a qualifying written service agreement. After any included period, the standard running cost is ₹1,699/month according to your agreed service scope. Starter has no free period and runs at standard ₹1,699/month.',
+      a: `Business Plus includes your first 3 months of running cost, EdgeCare includes your first 6 months, and EdgeLab Ultimate includes lifetime running cost under a qualifying written service agreement. After any included period, the standard running cost is ${monthlyRunningCost}/month according to your agreed service scope. Starter has no free period and runs at standard ${monthlyRunningCost}/month.`,
     },
     {
       q: 'How does the 18% Cloudflare Workers Free promotion work?',
-      a: 'This is an EdgeLab promotional offer (not provided by Cloudflare). It gives 18% off the qualifying EdgeLab service fee on eligible purchases above ₹9,000 when the customer explicitly selects Cloudflare Workers Free hosting. For Business Plus at ₹14,999, the 18% discount is ₹2,699.82, bringing your final qualifying service fee to ₹12,299.18. If a paid hosting setup is chosen, standard package pricing applies.',
+      a: `This is an EdgeLab promotional offer (not provided by Cloudflare). It gives 18% off the qualifying EdgeLab service fee on eligible purchases above ${cloudflarePromo.qualifyingThresholdFormatted} when the customer explicitly selects Cloudflare Workers Free hosting. For Business Plus at ${businessPlusTier?.price}, the 18% discount is ${cloudflarePromo.discountAmountFormatted}, bringing your final qualifying service fee to ${cloudflarePromo.discountedPriceFormatted}. If a paid hosting setup is chosen, standard package pricing applies.`,
     },
     {
       q: 'Are third-party costs like domain names or Meta ads included?',
@@ -42,7 +50,8 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="pt-32 pb-24 bg-white text-[#212413] min-h-screen">
+    <PricingSectionObserver id="pricing">
+      <div className="pt-32 pb-24 bg-white text-[#212413] min-h-screen">
       {/* Radiant Subtle Lighting */}
       <div 
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-[#F2F5ED] via-[#F9FAF8] to-transparent rounded-full blur-[140px] pointer-events-none" 
@@ -69,7 +78,7 @@ export default function PricingPage() {
 
         {/* 4 Approved Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 items-stretch">
-          {PRICING_TIERS.map((tier) => {
+          {pricingTiers.map((tier) => {
             const isHighlighted = tier.highlighted;
             const isBusinessPlus = tier.id === 'business-plus';
             const displayPrice = isBusinessPlus && businessPlusCloudflareFree ? tier.cloudflareDiscountedPrice : tier.price;
@@ -235,10 +244,10 @@ export default function PricingPage() {
         <div className="p-6 rounded-3xl bg-[#F9FAF8] border border-[#E4E8DE] mb-16 text-xs text-[#565F45] space-y-2">
           <h4 className="font-serif font-bold text-sm text-[#212413]">Official Pricing Conditions:</h4>
           <ul className="list-disc list-inside space-y-1.5 leading-relaxed">
-            <li><strong>Starter:</strong> ₹4,999 one-time. Standard running cost is ₹1,699/month according to the agreed service scope.</li>
-            <li><strong>Business Plus:</strong> ₹14,999 one-time. First 3 months of running cost included. Standard running cost of ₹1,699/month begins after the included period. The 18% Cloudflare promotion applies only if Cloudflare Workers Free hosting is selected for this qualifying purchase above ₹9,000.</li>
-            <li><strong>EdgeCare:</strong> ₹24,999 one-time. First 6 months of running cost included. Standard running cost of ₹1,699/month begins after the included period.</li>
-            <li><strong>EdgeLab Ultimate:</strong> ₹37,999 one-time. Running cost is free for the lifetime of the qualifying service agreement, subject to clear written terms. Meta advertising spend must be paid separately by the client. External expenses (domains, external hosting, email services, premium software, paid AI usage) are separate.</li>
+            <li><strong>Starter:</strong> {starterTier?.price} one-time. Standard running cost is {monthlyRunningCost}/month according to the agreed service scope.</li>
+            <li><strong>Business Plus:</strong> {businessPlusTier?.price} one-time. First 3 months of running cost included. Standard running cost of {monthlyRunningCost}/month begins after the included period. The 18% Cloudflare promotion applies only if Cloudflare Workers Free hosting is selected for this qualifying purchase above {cloudflarePromo.qualifyingThresholdFormatted}.</li>
+            <li><strong>EdgeCare:</strong> {edgeCareTier?.price} one-time. First 6 months of running cost included. Standard running cost of {monthlyRunningCost}/month begins after the included period.</li>
+            <li><strong>EdgeLab Ultimate:</strong> {ultimateTier?.price} one-time. Running cost is free for the lifetime of the qualifying service agreement, subject to clear written terms. Meta advertising spend must be paid separately by the client. External expenses (domains, external hosting, email services, premium software, paid AI usage) are separate.</li>
           </ul>
         </div>
 
@@ -286,5 +295,6 @@ export default function PricingPage() {
 
       </div>
     </div>
+    </PricingSectionObserver>
   );
 }

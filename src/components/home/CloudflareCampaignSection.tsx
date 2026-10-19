@@ -3,8 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Server, ShieldCheck, Zap, Calculator } from 'lucide-react';
+import { useCurrency } from '@/context/CurrencyContext';
 
 export const CloudflareCampaignSection: React.FC = () => {
+  const { cloudflarePromo } = useCurrency();
+
   return (
     <section className="py-20 sm:py-28 bg-[#0D1017] text-white relative overflow-hidden border-b border-white/10">
       {/* Official Cloudflare Theme Ambient Glow */}
@@ -90,7 +93,7 @@ export const CloudflareCampaignSection: React.FC = () => {
                     <span>Special EdgeLab Promotion</span>
                   </div>
                   <p className="text-[11px] text-[#B6BBD9] leading-relaxed">
-                    Select eligible Cloudflare Workers Free hosting with Business Plus and receive <strong className="text-white">18% off</strong> our qualifying service fee (<span className="text-[#AD8820] font-bold">₹12,299.18</span>).
+                    Select eligible Cloudflare Workers Free hosting with Business Plus and receive <strong className="text-white">18% off</strong> our qualifying service fee (<span className="text-[#AD8820] font-bold">{cloudflarePromo.discountedPriceFormatted}</span>).
                   </p>
                 </div>
               </div>

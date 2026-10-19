@@ -71,16 +71,16 @@ CORE CAPABILITIES:
 5. Social Media Management: Complete aesthetic feed direction, grid curation, weekly copywriting, content calendar, and publishing.
 6. Website Management & Care: Continuous uptime monitoring, SSL, menu/pricing updates, security, and priority WhatsApp support.
 
-PRICING PACKAGES & RUNNING-COST BENEFITS (All in INR):
-1. Starter Package: ₹4,999 (Reference: ₹5,999). Standard running cost ₹1,699/month according to agreed scope. Essential business website, mobile-first, contact info, WhatsApp & social links, basic SEO.
-2. Business Plus: ₹14,999 one-time. First 3 months of running cost included (standard ₹1,699/month begins after 3 months). Custom design, gallery/catalogue, enquiry forms, enhanced SEO. Eligible for EdgeLab 18% Cloudflare Workers Free offer (₹12,299.18, save ₹2,699.82) when choosing eligible Cloudflare Workers Free hosting.
-3. EdgeCare: ₹24,999 (Reference: ₹25,999). First 6 months of running cost included (then ₹1,699/month). Everything in Business Plus + defined website maintenance, 24/7 uptime monitoring, bug fixes, updates, speed checks, and priority support allowance.
-4. EdgeLab Ultimate: ₹37,999 (Reference: ₹39,999). Running cost is free for the lifetime of qualifying service agreement. Full-spectrum: website design & dev, brand/product photography, reels and short-form video production, social media management, Google Business Profile support, and performance marketing management. (Meta ad spend paid separately by client).
+PRICING PACKAGES & RUNNING-COST BENEFITS (Available in USD for international clients, and INR for Indian clients):
+1. Starter Package: $399 USD / ₹4,999 INR (Reference: $499 USD / ₹5,999 INR). Standard running cost $25/month or ₹1,699/month according to agreed scope. Essential business website, mobile-first, contact info, WhatsApp & social links, basic SEO.
+2. Business Plus: $899 USD / ₹14,999 INR one-time. First 3 months of running cost included (standard $25/mo or ₹1,699/mo begins after 3 months). Custom design, gallery/catalogue, enquiry forms, enhanced SEO. Eligible for EdgeLab 18% Cloudflare Workers Free offer ($737.18 USD / ₹12,299.18 INR, save $161.82 USD / ₹2,699.82 INR) when choosing eligible Cloudflare Workers Free hosting.
+3. EdgeCare: $1,499 USD / ₹24,999 INR (Reference: $1,699 USD / ₹25,999 INR). First 6 months of running cost included (then $25/mo or ₹1,699/mo). Everything in Business Plus + defined website maintenance, 24/7 uptime monitoring, bug fixes, updates, speed checks, and priority support allowance.
+4. EdgeLab Ultimate: $2,499 USD / ₹37,999 INR (Reference: $2,799 USD / ₹39,999 INR). Running cost is free for the lifetime of qualifying service agreement. Full-spectrum: website design & dev, brand/product photography, reels and short-form video production, social media management, Google Business Profile support, and performance marketing management. (Meta ad spend paid separately by client).
 
 CLOUDFLARE WORKERS CALCULATOR:
 - Route: /cloudflare-workers-calculator
 - Allows visitors to estimate their daily backend Worker requests and determine if Cloudflare Workers Free (100,000 req/day quota) fits their workload.
-- EdgeLab 18% discount applies to qualifying purchases above ₹9,000 (such as Business Plus at ₹14,999 -> ₹12,299.18) when choosing Cloudflare Workers Free hosting. Note: This is an EdgeLab agency offer, not a Cloudflare discount.
+- EdgeLab 18% discount applies to qualifying purchases above $500 USD / ₹9,000 INR (such as Business Plus at $899 -> $737.18, or ₹14,999 -> ₹12,299.18) when choosing Cloudflare Workers Free hosting. Note: This is an EdgeLab agency offer, not a Cloudflare discount.
 
 LIVE SHOWCASE PROJECTS:
 - NOIRÉ Luxury Couture Atelier (https://noire-couture.netlify.app/): High-fashion digital runway with editorial storytelling and visual commerce.
@@ -90,7 +90,7 @@ CONVERSATION GUIDELINES:
 - Speak like a friendly, sharp, knowledgeable digital agency consultant talking directly to a prospective client.
 - Always address the user's specific question or comment first. Never give robotic, repetitive answers.
 - If the user says "hi", "hello", "hey", greet them warmly, introduce EdgeLab, and ask what kind of business or project they are looking to bring online.
-- If asked about pricing or plans, present the 4 tiers, highlight why Business Plus (₹14,999 with 3 months free running cost and 18% Cloudflare promotion eligibility) is our featured package, and invite them to discuss on WhatsApp at +91 60001 56107.
+- If asked about pricing or plans, present the 4 tiers (in the user's preferred currency, mentioning USD $399 - $2,499 and INR ₹4,999 - ₹37,999), highlight why Business Plus ($899 / ₹14,999 with 3 months free running cost and 18% Cloudflare promotion eligibility) is our featured package, and invite them to discuss on WhatsApp at +91 60001 56107.
 - If the user mentions a specific industry (car shop, restaurant, salon, fashion, clinic, real estate), give specific advice on what EdgeLab builds for that industry.
 - Keep answers formatted with markdown (bolding, lists, tables) for readability.
 - Maintain a warm, encouraging, high-end professional tone at all times.`;
@@ -131,10 +131,21 @@ function detectIndustryContext(history: ChatHistoryItem[]): string {
 // DYNAMIC CONVERSATIONAL AGENT ENGINE
 // Provides rich, dynamic, multi-turn dialogue with zero static repetition
 // ─────────────────────────────────────────────────
-function generateDynamicAgentResponse(userText: string, history: ChatHistoryItem[]): string {
+function generateDynamicAgentResponse(userText: string, history: ChatHistoryItem[], currency: 'USD' | 'INR' = 'USD'): string {
   const text = userText.toLowerCase().trim();
   const industry = detectIndustryContext(history);
   const userTurnsCount = history.filter((m) => m.role === 'user').length;
+
+  const isUSD = currency === 'USD';
+  const starterPrice = isUSD ? '$399' : '₹4,999';
+  const starterRef = isUSD ? '$499' : '₹5,999';
+  const businessPlusPrice = isUSD ? '$899' : '₹14,999';
+  const businessPlusDiscounted = isUSD ? '$737.18' : '₹12,299.18';
+  const edgeCarePrice = isUSD ? '$1,499' : '₹24,999';
+  const edgeCareRef = isUSD ? '$1,699' : '₹25,999';
+  const ultimatePrice = isUSD ? '$2,499' : '₹37,999';
+  const ultimateRef = isUSD ? '$2,799' : '₹39,999';
+  const runningCost = isUSD ? '$25/mo' : '₹1,699/mo';
 
   // 1. GREETINGS & INTRODUCTIONS
   const isGreeting =
@@ -155,7 +166,7 @@ function generateDynamicAgentResponse(userText: string, history: ChatHistoryItem
       return (
         "Hey again! How can I assist you right now?\n\n" +
         "Here are a few quick ways I can help:\n" +
-        "• **Pricing & Packages**: We offer 4 clear tiers: Starter (₹4,999), Business Plus (₹14,999 — our most popular), EdgeCare (₹24,999), and Ultimate (₹37,999).\n" +
+        `• **Pricing & Packages**: We offer 4 clear tiers: Starter (${starterPrice}), Business Plus (${businessPlusPrice} — our most popular), EdgeCare (${edgeCarePrice}), and Ultimate (${ultimatePrice}).\n` +
         "• **Cloudflare Workers Calculator**: Estimate whether your backend can run on Cloudflare Workers Free (100k requests/day).\n" +
         "• **Direct Consultation**: Connect with our project directors directly on WhatsApp at **+91 60001 56107**.\n\n" +
         "What would you like to explore?"
@@ -222,12 +233,12 @@ function generateDynamicAgentResponse(userText: string, history: ChatHistoryItem
     return (
       `${contextHeader}| Package | Investment | Running Cost Benefit | Key Deliverables |\n` +
       `| :--- | :--- | :--- | :--- |\n` +
-      `| **Starter** | **₹4,999** ~₹5,999~ | Standard ₹1,699/mo | Professional business website, responsive, essential pages, contact, basic SEO |\n` +
-      `| **Business Plus ⭐** | **₹14,999** | **First 3 Months FREE** (then ₹1,699/mo) | Custom design, catalogue, contact forms, enhanced SEO. **Eligible for 18% off (₹12,299.18) with Cloudflare Workers Free!** |\n` +
-      `| **EdgeCare** | **₹24,999** ~₹25,999~ | **First 6 Months FREE** (then ₹1,699/mo) | Everything in Business Plus + defined maintenance, 24/7 uptime monitoring, updates & priority support |\n` +
-      `| **EdgeLab Ultimate** | **₹37,999** ~₹39,999~ | **FREE for Lifetime** of agreement | Complete partner: bespoke web + photo shoot + reels production + social media + performance marketing |\n\n` +
-      `⭐ **POPULAR CHOICE: Business Plus (₹14,999)**\n` +
-      `Includes 3 months of running costs completely free! Plus, if you choose eligible Cloudflare Workers Free hosting, our 18% promotion drops the service fee to **₹12,299.18**.\n\n` +
+      `| **Starter** | **${starterPrice}** ~${starterRef}~ | Standard ${runningCost} | Professional business website, responsive, essential pages, contact, basic SEO |\n` +
+      `| **Business Plus ⭐** | **${businessPlusPrice}** | **First 3 Months FREE** (then ${runningCost}) | Custom design, catalogue, contact forms, enhanced SEO. **Eligible for 18% off (${businessPlusDiscounted}) with Cloudflare Workers Free!** |\n` +
+      `| **EdgeCare** | **${edgeCarePrice}** ~${edgeCareRef}~ | **First 6 Months FREE** (then ${runningCost}) | Everything in Business Plus + defined maintenance, 24/7 uptime monitoring, updates & priority support |\n` +
+      `| **EdgeLab Ultimate** | **${ultimatePrice}** ~${ultimateRef}~ | **FREE for Lifetime** of agreement | Complete partner: bespoke web + photo shoot + reels production + social media + performance marketing |\n\n` +
+      `⭐ **POPULAR CHOICE: Business Plus (${businessPlusPrice})**\n` +
+      `Includes 3 months of running costs completely free! Plus, if you choose eligible Cloudflare Workers Free hosting, our 18% promotion drops the service fee to **${businessPlusDiscounted}**.\n\n` +
       `You can also calculate your backend usage on our new [Cloudflare Workers Calculator](/cloudflare-workers-calculator).\n\n` +
       `Would you like to discuss the best fit for your project with our team on WhatsApp at **+91 60001 56107**?`
     );
@@ -251,7 +262,7 @@ function generateDynamicAgentResponse(userText: string, history: ChatHistoryItem
       "3. **Google Local SEO & Maps Domination**: We optimize your platform so local car owners searching *'car repair near me'* or *'best auto workshop'* find your shop first.\n" +
       "4. **Before & After Work Showcase**: Interactive visual sliders showcasing recent detailing and repair transformations.\n" +
       "5. **Customer Reviews & Trust Badges**: Real Google reviews embedded directly to build immediate trust.\n\n" +
-      "⭐ **Recommended Package:** Our **Business Plus at ₹14,999** includes custom design, full service menu, SEO optimization, and 3 months of free running cost (plus Cloudflare 18% promotion eligibility).\n\n" +
+      "⭐ **Recommended Package:** Our **Business Plus at " + businessPlusPrice + "** includes custom design, full service menu, SEO optimization, and 3 months of free running cost (plus Cloudflare 18% promotion eligibility).\n\n" +
       "Would you like us to prepare a custom blueprint for your car shop? You can also message our team directly on WhatsApp at **+91 60001 56107**!"
     );
   }
@@ -273,7 +284,7 @@ function generateDynamicAgentResponse(userText: string, history: ChatHistoryItem
       "• **Direct WhatsApp Ordering & Table Reservations**: Keep 100% of your revenue with **0% commission cuts** to aggregators like Zomato/Swiggy.\n" +
       "• **Live Kitchen & Dispatch Portal**: Real-time staff queue and table status management.\n" +
       "• **Live Production Example**: Check out our live case study: [Aura Royale Bistro](https://restaurant-live-portal.netlify.app/) to see the customer and kitchen portals in action!\n\n" +
-      "⭐ **Recommended Plan:** Our **Business Plus (₹14,999)** with full online ordering and 3 months of free running cost included. Let's discuss your menu on WhatsApp at **+91 60001 56107**!"
+      "⭐ **Recommended Plan:** Our **Business Plus (" + businessPlusPrice + ")** with full online ordering and 3 months of free running cost included. Let's discuss your menu on WhatsApp at **+91 60001 56107**!"
     );
   }
 
@@ -409,15 +420,15 @@ function generateDynamicAgentResponse(userText: string, history: ChatHistoryItem
 
   if (industry) {
     return (
-      `Thanks for sharing that! For your **${industry}**, our standard recommendation is the **Business Plus Package (₹14,999)** because it includes bespoke custom design, product/service catalogue, contact forms, enhanced local SEO, and **3 months of free running costs**.\n\n` +
-      `Plus, if you host your backend with Cloudflare Workers Free, you qualify for our **18% promotional discount (₹12,299.18)**.\n\n` +
+      `Thanks for sharing that! For your **${industry}**, our standard recommendation is the **Business Plus Package (${businessPlusPrice})** because it includes bespoke custom design, product/service catalogue, contact forms, enhanced local SEO, and **3 months of free running costs**.\n\n` +
+      `Plus, if you host your backend with Cloudflare Workers Free, you qualify for our **18% promotional discount (${businessPlusDiscounted})**.\n\n` +
       `Is there a specific feature you'd like your website to have (such as an online catalog, booking calendar, or photo gallery), or would you prefer a custom quote from our team on WhatsApp at **+91 60001 56107**?`
     );
   }
 
   return (
     `I understand you're looking into "${userText.slice(0, 50)}...". At EdgeLab, we design and build bespoke digital solutions tailored to your exact business model.\n\n` +
-    `Our packages start at **₹4,999** for the Starter Package and **₹14,999** for our most popular **Business Plus Package** (with 3 months free running cost and 18% Cloudflare promotion eligibility).\n\n` +
+    `Our packages start at **${starterPrice}** for the Starter Package and **${businessPlusPrice}** for our most popular **Business Plus Package** (with 3 months free running cost and 18% Cloudflare promotion eligibility).\n\n` +
     `Could you tell me a little more about your business or industry? That way I can give you an exact recommendation and scope breakdown!`
   );
 }
@@ -567,7 +578,8 @@ export async function POST(req: NextRequest) {
     }
 
     // 4. SECONDARY ATTEMPT: Dynamic Agent Engine (Non-repetitive, context-aware, instant)
-    const agentResponse = generateDynamicAgentResponse(userText, messages);
+    const currency = (body.currency === 'INR' ? 'INR' : 'USD') as 'USD' | 'INR';
+    const agentResponse = generateDynamicAgentResponse(userText, messages, currency);
     return NextResponse.json(
       {
         response: agentResponse,

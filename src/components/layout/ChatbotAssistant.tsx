@@ -15,6 +15,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { getWhatsAppUrl } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
 
 // ─────────────────────────────────────────────────
 // Types
@@ -32,7 +33,8 @@ interface ChatMessage {
 const FormattedMessage: React.FC<{
   content: string;
   onQuickAction: (action: string) => void;
-}> = ({ content, onQuickAction }) => {
+  businessPlusPrice: string;
+}> = ({ content, onQuickAction, businessPlusPrice }) => {
   // Parse message into segments: text, table, bullet points
   const lines = content.split('\n');
   const elements: React.ReactNode[] = [];
@@ -224,7 +226,7 @@ const FormattedMessage: React.FC<{
   }
 
   // If plans or pricing were mentioned, append quick CTA action chips
-  const hasPlans = content.includes('Starter') || content.includes('Business Plus') || content.includes('14,999') || content.includes('EdgeCare');
+  const hasPlans = content.includes('Starter') || content.includes('Business Plus') || content.includes('14,999') || content.includes('899') || content.includes('EdgeCare');
 
   return (
     <div>
@@ -233,13 +235,13 @@ const FormattedMessage: React.FC<{
       {hasPlans && (
         <div className="mt-2.5 pt-2 border-t border-[#1A281E]/10 flex flex-wrap gap-1.5">
           <button
-            onClick={() => onQuickAction('I want to start with the Business Plus Package (₹14,999)')}
+            onClick={() => onQuickAction(`I want to start with the Business Plus Package (${businessPlusPrice})`)}
             className="px-2.5 py-1 rounded-full text-[10.5px] font-bold bg-[#162319] text-white hover:bg-[#25392B] transition-all flex items-center gap-1 shadow-2xs"
           >
-            <span>⭐ Choose Business Plus (₹14,999)</span>
+            <span>⭐ Choose Business Plus ({businessPlusPrice})</span>
           </button>
           <a
-            href={getWhatsAppUrl("Hi EdgeLab, I'd like to get started with the Business Plus Package (₹14,999).")}
+            href={getWhatsAppUrl(`Hi EdgeLab, I'd like to get started with the Business Plus Package (${businessPlusPrice}).`)}
             target="_blank"
             rel="noopener noreferrer"
             className="px-2.5 py-1 rounded-full text-[10.5px] font-semibold bg-[#EBF7EF] text-[#047857] border border-[#A7F3D0] hover:bg-[#D8F0E1] transition-all flex items-center gap-1"
@@ -257,6 +259,10 @@ const FormattedMessage: React.FC<{
 // Component
 // ─────────────────────────────────────────────────
 export const ChatbotAssistant: React.FC = () => {
+  const { currency, pricingTiers } = useCurrency();
+  const businessPlusTier = pricingTiers.find((t) => t.id === 'business-plus');
+  const businessPlusPrice = businessPlusTier ? businessPlusTier.price : (currency === 'USD' ? '$899' : '₹14,999');
+
   const [isOpen, setIsOpen] = useState(false);
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -341,7 +347,7 @@ export const ChatbotAssistant: React.FC = () => {
         const res = await fetch(`${backendUrl}/api/chat`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: history }),
+          body: JSON.stringify({ messages: history, currency }),
         });
 
         const data = await res.json();
@@ -519,7 +525,7 @@ export const ChatbotAssistant: React.FC = () => {
                   {msg.role === 'user' ? (
                     <div>{msg.content}</div>
                   ) : (
-                    <FormattedMessage content={msg.content} onQuickAction={handleQuickAction} />
+                    <FormattedMessage content={msg.content} onQuickAction={handleQuickAction} businessPlusPrice={businessPlusPrice} />
                   )}
                 </div>
               </div>

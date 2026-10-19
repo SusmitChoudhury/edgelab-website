@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { BrandLogo } from '../ui/BrandLogo';
+import { CurrencySwitcher } from '../ui/CurrencySwitcher';
 import { NAVIGATION_LINKS, getWhatsAppUrl, CONTACT } from '@/config/site';
 import { MessageSquare, ArrowRight, Menu, X, Phone } from 'lucide-react';
 
@@ -80,6 +81,9 @@ export const Navbar: React.FC = () => {
 
           {/* ── Right Zone: Actions (Desktop >= 1024px) ── */}
           <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 flex-shrink-0">
+            {/* Global Currency Switcher */}
+            <CurrencySwitcher size="sm" />
+
             {/* Quick WhatsApp Link */}
             <a
               href={getWhatsAppUrl("Hi EdgeLab, I'd like to discuss building our digital presence.")}
@@ -104,21 +108,13 @@ export const Navbar: React.FC = () => {
 
           {/* ── Mobile / Tablet Zone (< 1024px) ── */}
           <div className="flex lg:hidden items-center gap-2 flex-shrink-0">
-            {/* WhatsApp Icon for mobile */}
-            <a
-              href={getWhatsAppUrl("Hi EdgeLab, I'd like to discuss building our digital presence.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="p-2 text-[#B6BBD9] hover:text-white bg-[#1e341c] border border-[#444F24] rounded-full"
-            >
-              <MessageSquare className="w-4 h-4 text-[#AD8820]" />
-            </a>
+            {/* Mobile Header Currency Switcher */}
+            <CurrencySwitcher size="sm" />
 
             {/* Quick Start Button */}
             <Link
               href="/contact"
-              className="px-3.5 py-1.5 text-xs font-bold text-white bg-[#444F24] rounded-full shadow-xs whitespace-nowrap"
+              className="px-3 py-1.5 text-xs font-bold text-white bg-[#444F24] rounded-full shadow-xs whitespace-nowrap"
             >
               Discuss
             </Link>
@@ -140,8 +136,14 @@ export const Navbar: React.FC = () => {
       {/* ── Mobile / Tablet Full-Screen Drawer (< 1024px) ── */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-x-0 top-full h-[calc(100dvh-100%)] bg-[#0D0F14]/98 backdrop-blur-2xl border-t border-white/10 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto z-50 animate-fadeIn pb-28">
-          <div className="space-y-2 pt-2">
-            <div className="text-[11px] uppercase tracking-widest text-[#AD8820] font-mono mb-3 font-bold flex items-center gap-2">
+          <div className="space-y-3 pt-2">
+            {/* Mobile Drawer Currency Switcher Row */}
+            <div className="flex items-center justify-between py-2 px-3 mb-2 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-xs font-mono text-[#B6BBD9] font-medium">Select Currency:</span>
+              <CurrencySwitcher size="sm" />
+            </div>
+
+            <div className="text-[11px] uppercase tracking-widest text-[#AD8820] font-mono mb-2 font-bold flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#AD8820] animate-pulse" />
               <span>Navigation Menu</span>
             </div>

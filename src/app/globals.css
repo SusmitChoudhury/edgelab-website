@@ -227,3 +227,29 @@ input[type='range']::-moz-range-thumb {
 .animate-float {
   animation: float-gentle 6s ease-in-out infinite;
 }
+
+/* Currency Switcher Attention Pulse Animation (Exactly 2 cycles) */
+@keyframes currencyPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(173, 136, 32, 0);
+    border-color: rgba(68, 79, 36, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 16px 3px rgba(173, 136, 32, 0.6);
+    border-color: #AD8820;
+  }
+}
+
+.animate-currency-pulse {
+  animation: currencyPulse 700ms ease-in-out 2;
+  will-change: transform, box-shadow, border-color;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-currency-pulse {
+    animation: none !important;
+    border-color: #AD8820 !important;
+  }
+}

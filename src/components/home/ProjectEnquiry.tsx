@@ -13,8 +13,25 @@ import {
 } from 'lucide-react';
 import { InstagramIcon } from '@/components/ui/InstagramIcon';
 import { CONTACT, getWhatsAppUrl } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
 
 export const ProjectEnquiry: React.FC = () => {
+  const { currency, pricingTiers } = useCurrency();
+  const starterTier = pricingTiers.find((t) => t.id === 'starter');
+  const starterPrice = starterTier ? starterTier.price : (currency === 'USD' ? '$399' : '₹4,999');
+
+  const budgetTiers = currency === 'USD' ? [
+    `Starter (${starterPrice}+)`,
+    '$500 – $1,000',
+    '$1,000 – $2,500',
+    'Custom / Enterprise ($2,500+)',
+  ] : [
+    `Starter (${starterPrice}+)`,
+    '₹10,000 – ₹25,000',
+    '₹25,000 – ₹50,000',
+    'Custom / Enterprise (₹50,000+)',
+  ];
+
   const selectableServices = [
     'Website',
     'E-commerce',
@@ -27,19 +44,13 @@ export const ProjectEnquiry: React.FC = () => {
     'Other',
   ];
 
-  const budgetTiers = [
-    'Starter (₹4,999+)',
-    '₹10,000 – ₹25,000',
-    '₹25,000 – ₹50,000',
-    'Custom / Enterprise (₹50,000+)',
-  ];
-
   const [name, setName] = useState('');
   const [business, setBusiness] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [selectedServices, setSelectedServices] = useState<string[]>(['Website']);
-  const [budget, setBudget] = useState(budgetTiers[1]);
+  const [selectedBudgetIndex, setSelectedBudgetIndex] = useState(1);
+  const budget = budgetTiers[selectedBudgetIndex] || budgetTiers[0];
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
@@ -265,13 +276,13 @@ Hi EdgeLab, let's build something worth remembering.`;
                     Estimated Budget Range
                   </label>
                   <div className="grid grid-cols-2 gap-2">
-                    {budgetTiers.map((tier) => {
-                      const isSelected = budget === tier;
+                    {budgetTiers.map((tier, idx) => {
+                      const isSelected = selectedBudgetIndex === idx;
                       return (
                         <button
                           key={tier}
                           type="button"
-                          onClick={() => setBudget(tier)}
+                          onClick={() => setSelectedBudgetIndex(idx)}
                           className={`p-3 rounded-xl text-xs font-mono text-left transition-all ${
                             isSelected
                               ? 'bg-[#E8F5EE] text-[#059669] border-2 border-[#10B981] font-bold shadow-xs'

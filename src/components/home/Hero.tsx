@@ -5,8 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MessageSquare, CheckCircle2, Zap, Calculator } from 'lucide-react';
 import { getWhatsAppUrl, CONTACT } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
 
 export const Hero: React.FC = () => {
+  const { cloudflarePromo } = useCurrency();
+
   return (
     <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 bg-[#0D0F14] text-white overflow-hidden">
       {/* ── Multi-Color Ambient Lighting (Mist + Harvest + Cloudflare Orange + Forest) ── */}
@@ -70,7 +73,7 @@ export const Hero: React.FC = () => {
               </div>
 
               <p className="text-xs sm:text-sm text-gray-200 leading-snug mb-3">
-                Host your website backend on Cloudflare Workers Free Tier and get <span className="text-[#AD8820] font-bold">18% OFF</span> our Business Plus Package (<span className="line-through text-gray-400">₹14,999</span> <span className="text-white font-bold">₹12,299.18</span>).
+                Host your website backend on Cloudflare Workers Free Tier and get <span className="text-[#AD8820] font-bold">18% OFF</span> our Business Plus Package (<span className="line-through text-gray-400">{cloudflarePromo.baseFormatted}</span> <span className="text-white font-bold">{cloudflarePromo.discountedPriceFormatted}</span>).
               </p>
 
               <div className="flex flex-wrap items-center gap-2 pt-1">

@@ -6,6 +6,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ChatbotAssistant } from '@/components/layout/ChatbotAssistant';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
+import { CurrencyProvider } from '@/context/CurrencyContext';
 
 const sansFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -140,7 +141,7 @@ export default function RootLayout({
         url: SITE_URL,
         telephone: CONTACT.phoneDisplay,
         email: CONTACT.email,
-        priceRange: '₹4,999 - ₹49,999',
+        priceRange: '$399 - $2,499 / ₹4,999 - ₹37,999',
         address: {
           '@type': 'PostalAddress',
           addressCountry: 'IN',
@@ -159,14 +160,16 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased text-[#0C120E] bg-white selection:bg-[#1A281E] selection:text-white">
-        <SmoothScroll>
-          <Navbar />
-          <main id="main-content" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
-          <ChatbotAssistant />
-        </SmoothScroll>
+        <CurrencyProvider>
+          <SmoothScroll>
+            <Navbar />
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
+            <Footer />
+            <ChatbotAssistant />
+          </SmoothScroll>
+        </CurrencyProvider>
       </body>
     </html>
   );

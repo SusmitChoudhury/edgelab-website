@@ -19,6 +19,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { getWhatsAppUrl, CONTACT } from '@/config/site';
+import { useCurrency } from '@/context/CurrencyContext';
 
 interface BreakdownRow {
   label: string;
@@ -27,6 +28,7 @@ interface BreakdownRow {
 }
 
 export const CloudflareWorkersCalculator: React.FC = () => {
+  const { cloudflarePromo, monthlyRunningCost } = useCurrency();
   // Unique accessible IDs for inputs
   const visitorsId = useId();
   const formId = useId();
@@ -552,27 +554,27 @@ Hi EdgeLab, I ran my backend estimates on your calculator and want to discuss ho
                       </span>
                     </div>
                     <p className="font-semibold text-sm text-[#444F24] mb-1">
-                      Choose eligible Cloudflare Workers Free hosting and receive 18% off the qualifying EdgeLab service fee on purchases above ₹9,000.
+                      Choose eligible Cloudflare Workers Free hosting and receive 18% off the qualifying EdgeLab service fee on purchases above {cloudflarePromo.qualifyingThresholdFormatted}.
                     </p>
                     <p className="text-xs text-[#565F45] mb-3">
-                      Applied to our <strong>Business Plus</strong> package (₹14,999 base fee):
+                      Applied to our <strong>Business Plus</strong> package ({cloudflarePromo.baseFormatted} base fee):
                     </p>
                     <div className="bg-white p-3 rounded-xl border border-[#D8E4DC] font-mono text-xs space-y-1 mb-3">
                       <div className="flex justify-between">
                         <span className="text-[#565F45]">Base Package Fee:</span>
-                        <span>₹14,999.00</span>
+                        <span>{cloudflarePromo.baseFormatted}</span>
                       </div>
                       <div className="flex justify-between text-[#AD8820] font-bold">
                         <span>18% Promotional Discount:</span>
-                        <span>- ₹2,699.82</span>
+                        <span>- {cloudflarePromo.discountAmountFormatted}</span>
                       </div>
                       <div className="flex justify-between pt-1 border-t border-[#E4E8DE] text-[#444F24] font-bold text-sm">
                         <span>Final Qualifying Fee:</span>
-                        <span>₹12,299.18</span>
+                        <span>{cloudflarePromo.discountedPriceFormatted}</span>
                       </div>
                     </div>
                     <p className="text-[11px] text-[#7A846B] leading-relaxed">
-                      *Note: The first 3 months of running cost remain included. Standard running cost of ₹1,699/month begins after 3 months. This discount is an EdgeLab agency promotion, not a discount provided by Cloudflare. Free hosting has limits, and external provider costs (such as databases or third-party APIs) may still apply.
+                      *Note: The first 3 months of running cost remain included. Standard running cost of {monthlyRunningCost}/month begins after 3 months. This discount is an EdgeLab agency promotion, not a discount provided by Cloudflare. Free hosting has limits, and external provider costs (such as databases or third-party APIs) may still apply.
                     </p>
                   </div>
                 ) : hostingSelection === 'paid' ? (
@@ -868,7 +870,7 @@ Hi EdgeLab, I ran my backend estimates on your calculator and want to discuss ho
               },
               {
                 q: 'Does EdgeLab automatically apply the 18% discount to all website packages?',
-                a: 'No. The 18% discount is an EdgeLab agency promotion offered specifically to customers who purchase qualifying packages above ₹9,000 (such as our ₹14,999 Business Plus package) and choose the Cloudflare Workers Free hosting option. It does not apply to other packages unless explicitly approved in writing.',
+                a: `No. The 18% discount is an EdgeLab agency promotion offered specifically to customers who purchase qualifying packages above ${cloudflarePromo.qualifyingThresholdFormatted} (such as our ${cloudflarePromo.baseFormatted} Business Plus package) and choose the Cloudflare Workers Free hosting option. It does not apply to other packages unless explicitly approved in writing.`,
               },
               {
                 q: 'How does EdgeLab ensure my website stays under the free limits?',
