@@ -39,10 +39,10 @@ export const CloudflareCampaignSection: React.FC = () => {
               *Free-tier suitability depends on your actual workload, usage limits and external service costs (such as separate databases, third-party APIs, and domain registration).
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <Link
                 href="/cloudflare-workers-calculator"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#F6821F] hover:bg-[#ff9538] text-white text-xs font-bold tracking-wide transition-all shadow-[0_4px_25px_rgba(246,130,31,0.25)] group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 min-h-[46px] rounded-full bg-[#F6821F] hover:bg-[#ff9538] text-white text-xs font-bold tracking-wide transition-all shadow-[0_4px_25px_rgba(246,130,31,0.25)] group active:scale-[0.98]"
               >
                 <span>Calculate My Usage</span>
                 <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
@@ -50,7 +50,7 @@ export const CloudflareCampaignSection: React.FC = () => {
 
               <Link
                 href="/cloudflare-workers-calculator#comparison"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#181B24] hover:bg-[#232733] border border-[#B6BBD9]/30 text-[#B6BBD9] hover:text-white text-xs font-medium transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[46px] rounded-full bg-[#181B24] hover:bg-[#232733] border border-[#B6BBD9]/30 text-[#B6BBD9] hover:text-white text-xs font-medium transition-all active:scale-[0.98]"
               >
                 <span>Understand Free vs Paid</span>
               </Link>
@@ -97,7 +97,7 @@ export const CloudflareCampaignSection: React.FC = () => {
 
               <Link
                 href="/cloudflare-workers-calculator"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#F6821F] hover:bg-[#ff9538] text-white text-xs font-bold transition-all shadow-md"
+                className="w-full min-h-[46px] inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-[#F6821F] hover:bg-[#ff9538] text-white text-xs font-bold transition-all shadow-md active:scale-[0.98]"
               >
                 <span>Launch Interactive Calculator</span>
                 <ArrowRight className="w-3.5 h-3.5" />

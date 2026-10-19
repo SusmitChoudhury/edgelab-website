@@ -277,9 +277,10 @@ export const ChatbotAssistant: React.FC = () => {
     { label: '📞 Connect with EdgeLab team', prompt: 'Connect me with the team on WhatsApp' },
   ];
 
-  // ─── Auto-open on first visit ────────────────
+  // ─── Auto-open on first visit (Desktop only, never intrusive on mobile) ────
   useEffect(() => {
     if (hasAutoOpened) return;
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
     const hasOpened = sessionStorage.getItem('edgelab-chat-opened');
     if (!hasOpened) {
       const timer = setTimeout(() => {
@@ -407,16 +408,16 @@ export const ChatbotAssistant: React.FC = () => {
 
   return (
     <div
-      className="fixed bottom-5 right-5 z-[9999] flex flex-col items-end"
+      className="fixed bottom-[74px] right-3.5 sm:bottom-5 sm:right-5 z-[9999] flex flex-col items-end"
       style={{ fontFamily: 'var(--font-sans), system-ui, sans-serif' }}
     >
       {/* ────── Chat Panel ────── */}
       {isOpen && (
         <div
-          className="mb-3 w-[360px] sm:w-[420px] rounded-2xl overflow-hidden shadow-2xl border border-[#162319]/20"
+          className="mb-3 w-[calc(100vw-28px)] max-w-[400px] sm:w-[420px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
           style={{
             background: 'linear-gradient(180deg, #FAFCFA 0%, #FFFFFF 100%)',
-            boxShadow: '0 25px 70px -10px rgba(22, 35, 25, 0.4), 0 0 0 1px rgba(22, 35, 25, 0.1)',
+            boxShadow: '0 25px 70px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)',
             animation: 'chatSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
@@ -486,8 +487,8 @@ export const ChatbotAssistant: React.FC = () => {
           {/* ── Messages Area ── */}
           <div
             ref={chatContainerRef}
-            className="px-3.5 py-3 space-y-3 overflow-y-auto"
-            style={{ height: '360px', scrollbarWidth: 'thin', scrollbarColor: '#C2D5C8 transparent' }}
+            className="px-3.5 py-3 space-y-3 overflow-y-auto h-[280px] sm:h-[360px] max-h-[50dvh]"
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#C2D5C8 transparent' }}
           >
             {messages.map((msg) => (
               <div

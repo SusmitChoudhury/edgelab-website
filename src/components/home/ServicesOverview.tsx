@@ -28,7 +28,7 @@ export const ServicesOverview: React.FC = () => {
 
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-semibold tracking-wide transition-all self-start md:self-end shrink-0 shadow-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[44px] rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-semibold tracking-wide transition-all self-start md:self-end shrink-0 shadow-sm active:scale-[0.98]"
           >
             <span>View All Services in Detail</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#B6BBD9]" />
@@ -86,7 +86,7 @@ export const ServicesOverview: React.FC = () => {
               <div>
                 <Link
                   href="/services"
-                  className="w-full inline-flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#F7F8FC] hover:bg-[#EEF1F9] text-[#212413] border border-[#DFE2EC] hover:border-[#B6BBD9] text-xs font-semibold transition-all"
+                  className="w-full min-h-[44px] inline-flex items-center justify-between py-3 px-4 rounded-xl bg-[#F7F8FC] hover:bg-[#EEF1F9] text-[#212413] border border-[#DFE2EC] hover:border-[#B6BBD9] text-xs font-semibold transition-all active:scale-[0.98]"
                 >
                   <span>Explore Deliverables</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#AD8820]" />

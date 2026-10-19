@@ -164,6 +164,58 @@
   }
 }
 
+/* Mobile Touch & Scroll Optimizations */
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overscroll-behavior-x: none;
+}
+
+/* Prevent iOS Safari auto-zoom on form inputs by ensuring minimum 16px font */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Touch slider optimizations for mobile pan */
+input[type='range'] {
+  touch-action: pan-y;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background-color: #AD8820;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  background-color: #AD8820;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Safe area insets for mobile notched screens (iPhone / modern Android) */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
 .animate-spin-slow {
   animation: spin-slow 24s linear infinite;
 }

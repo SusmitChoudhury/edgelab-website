@@ -34,7 +34,7 @@ export const AboutPreviewSection: React.FC = () => {
             <div className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-semibold tracking-wide transition-all shadow-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[44px] rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-[0.98]"
               >
                 <span>Read Full Company Story</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#B6BBD9]" />

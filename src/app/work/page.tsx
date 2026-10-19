@@ -115,12 +115,12 @@ export default function WorkPage() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex flex-wrap items-center gap-3 pt-4">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4">
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold transition-all shadow-xs"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-5 min-h-[46px] rounded-xl bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold transition-all shadow-xs active:scale-[0.98]"
                     >
                       <span>Open Live Production Site</span>
                       <ExternalLink className="w-3.5 h-3.5 text-[#AD8820]" />
@@ -131,7 +131,7 @@ export default function WorkPage() {
                         href={project.adminDemoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#F2F5ED] hover:bg-[#E4E8DE] text-[#444F24] border border-[#C2D5C8] text-xs font-semibold transition-all"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-5 min-h-[46px] rounded-xl bg-[#F2F5ED] hover:bg-[#E4E8DE] text-[#444F24] border border-[#C2D5C8] text-xs font-semibold transition-all active:scale-[0.98]"
                       >
                         <span>Open Admin Portal Demo</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -158,7 +158,7 @@ export default function WorkPage() {
               href={getWhatsAppUrl("Hi EdgeLab, I looked at your live work and would like to discuss building something similar.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold transition-all shadow-md border border-[#52602c]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 min-h-[48px] rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold transition-all shadow-md border border-[#52602c] active:scale-[0.98]"
             >
               <MessageSquare className="w-3.5 h-3.5 text-[#AD8820]" />
               <span>Discuss Your Project on WhatsApp</span>

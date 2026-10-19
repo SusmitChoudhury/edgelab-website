@@ -8,7 +8,7 @@ import { getWhatsAppUrl, CONTACT } from '@/config/site';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative pt-32 pb-20 md:pt-36 md:pb-28 bg-[#0D0F14] text-white overflow-hidden">
+    <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 bg-[#0D0F14] text-white overflow-hidden">
       {/* ── Multi-Color Ambient Lighting (Mist + Harvest + Cloudflare Orange + Forest) ── */}
       <div 
         className="absolute top-12 left-10 w-[500px] h-[400px] bg-[#B6BBD9]/10 rounded-full blur-[140px] pointer-events-none" 
@@ -28,19 +28,19 @@ export const Hero: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
           {/* ── Left Column: Headline, Copy, Cloudflare Campaign & CTAs (6 cols) ── */}
-          <div className="lg:col-span-6 space-y-6 sm:space-y-7">
+          <div className="lg:col-span-6 space-y-5 sm:space-y-7">
             
             {/* Top Brand Pill using Mist & Harvest */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#1A1D24] border border-[#B6BBD9]/30 text-xs font-mono text-[#B6BBD9] shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#AD8820] animate-pulse" />
-              <span>DIGITAL AGENCY &bull; WEB &bull; MEDIA &bull; MARKETING</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A1D24] border border-[#B6BBD9]/30 text-[11px] sm:text-xs font-mono text-[#B6BBD9] shadow-xs max-w-full truncate">
+              <span className="w-2 h-2 rounded-full bg-[#AD8820] animate-pulse shrink-0" />
+              <span className="truncate">DIGITAL AGENCY &bull; WEB &bull; MEDIA &bull; MARKETING</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif text-white tracking-tight leading-[1.08]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif text-white tracking-tight leading-[1.12] sm:leading-[1.08]">
               Build Your Digital Presence.{' '}
               <span className="italic font-light text-[#B6BBD9]">
                 Grow Your Business.
@@ -48,23 +48,23 @@ export const Hero: React.FC = () => {
             </h1>
 
             {/* Supporting Text */}
-            <p className="text-base sm:text-lg text-[#B6BBD9]/90 leading-relaxed font-light">
+            <p className="text-sm sm:text-lg text-[#B6BBD9]/90 leading-relaxed font-light">
               Websites, content creation and performance marketing designed to help your business get noticed and turn attention into real customer enquiries.
             </p>
 
             {/* ── Official Cloudflare Offer Campaign Banner (Special Hero Feature) ── */}
             <div className="relative p-4 sm:p-5 rounded-2xl bg-[#14171F]/95 border border-[#F6821F]/40 hover:border-[#F6821F] transition-all shadow-[0_4px_30px_rgba(246,130,31,0.12)] group">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+              <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 mb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F6821F] text-white text-[11px] font-mono font-bold tracking-wider uppercase">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F6821F] text-white text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase">
                     <Zap className="w-3 h-3 fill-current" />
-                    CLOUDFLARE WORKERS® OFFER
+                    CLOUDFLARE OFFER
                   </span>
-                  <span className="text-[11px] font-mono text-[#AD8820] font-semibold">
+                  <span className="text-[10px] sm:text-[11px] font-mono text-[#AD8820] font-semibold">
                     18% OFF PROMO
                   </span>
                 </div>
-                <div className="text-xs font-mono text-[#B6BBD9]">
+                <div className="text-[11px] sm:text-xs font-mono text-[#B6BBD9]">
                   100k Req/Day Free Tier
                 </div>
               </div>
@@ -73,7 +73,7 @@ export const Hero: React.FC = () => {
                 Host your website backend on Cloudflare Workers Free Tier and get <span className="text-[#AD8820] font-bold">18% OFF</span> our Business Plus Package (<span className="line-through text-gray-400">₹14,999</span> <span className="text-white font-bold">₹12,299.18</span>).
               </p>
 
-              <div className="flex items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center gap-2 pt-1">
                 <Link
                   href="/cloudflare-workers-calculator"
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#F6821F] hover:text-[#FAAD3F] transition-colors group-hover:underline"
@@ -82,16 +82,16 @@ export const Hero: React.FC = () => {
                   <span>Launch Cloudflare Calculator</span>
                   <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <span className="text-gray-600">&bull;</span>
-                <span className="text-[11px] font-mono text-[#90844A]">Zero server fee eligibility</span>
+                <span className="text-gray-600 hidden sm:inline">&bull;</span>
+                <span className="text-[10px] sm:text-[11px] font-mono text-[#90844A] block sm:inline">Zero server fee eligibility</span>
               </div>
             </div>
 
-            {/* Conversion CTAs — Green limited to primary action tab */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
+            {/* Conversion CTAs — Full-width on mobile for thumb accessibility */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-sm font-semibold tracking-wide transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#B6BBD9] group border border-[#52602c]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs sm:text-sm font-semibold tracking-wide transition-all shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#B6BBD9] group border border-[#52602c]"
               >
                 <span>Discuss Your Project</span>
                 <ArrowRight className="w-4 h-4 text-[#B6BBD9] transition-transform group-hover:translate-x-1" />
@@ -99,14 +99,14 @@ export const Hero: React.FC = () => {
 
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#1A1D24] hover:bg-[#232731] border border-[#B6BBD9]/30 text-[#B6BBD9] hover:text-white text-sm font-medium transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-[#1A1D24] hover:bg-[#232731] border border-[#B6BBD9]/30 text-[#B6BBD9] hover:text-white text-xs sm:text-sm font-medium transition-all"
               >
                 <span>Explore Our Work</span>
               </Link>
             </div>
 
             {/* Value Indicators using Harvest Gold & Mist */}
-            <div className="pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono text-[#B6BBD9]">
+            <div className="pt-3 sm:pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 text-xs font-mono text-[#B6BBD9]">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#AD8820] shrink-0" />
                 <span>Bespoke Engineering</span>
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4 text-[#AD8820] shrink-0" />
                 <span>Studio Photography</span>
               </div>
-              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+              <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#AD8820] shrink-0" />
                 <span>Performance Marketing</span>
               </div>
@@ -125,13 +125,13 @@ export const Hero: React.FC = () => {
 
           {/* ── Right Column: Enlarged Hero Visual Asset (6 cols) ── */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border border-[#B6BBD9]/30 hover:border-[#AD8820]/60 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-[#16181F] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[1/1] w-full min-h-[400px] sm:min-h-[500px] lg:min-h-[560px]">
+            <div className="relative rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden border border-[#B6BBD9]/30 hover:border-[#AD8820]/60 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-[#16181F] aspect-[4/3] sm:aspect-[16/11] lg:aspect-[1/1] w-full min-h-[300px] sm:min-h-[460px] lg:min-h-[560px]">
               <Image
                 src="/Image for the Website/Hero Section main image.png"
                 alt="EdgeLab Digital Solutions — Websites, Content and Performance Marketing"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
 

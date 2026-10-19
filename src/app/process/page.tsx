@@ -191,10 +191,10 @@ export default function ProcessPage() {
           <p className="max-w-xl mx-auto text-sm sm:text-base text-[#52665A]">
             Schedule an initial 30-minute discovery consultation with an EdgeLab Project Director.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1A281E] hover:bg-[#263A2D] text-white text-xs font-bold transition-all shadow-[0_10px_25px_rgba(26,40,30,0.25)]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 min-h-[46px] rounded-full bg-[#1A281E] hover:bg-[#263A2D] text-white text-xs font-bold transition-all shadow-[0_10px_25px_rgba(26,40,30,0.25)] active:scale-[0.98]"
             >
               <span>SCHEDULE DISCOVERY →</span>
             </Link>
@@ -202,7 +202,7 @@ export default function ProcessPage() {
               href={getWhatsAppUrl("Hi EdgeLab, I'd like to schedule a project discovery consultation.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#F9FAF8] text-[#0C120E] border border-[#D8E4DC] text-xs font-mono font-semibold transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[46px] rounded-full bg-white hover:bg-[#F9FAF8] text-[#0C120E] border border-[#D8E4DC] text-xs font-mono font-semibold transition-all active:scale-[0.98]"
             >
               <span>Talk on WhatsApp</span>
             </a>

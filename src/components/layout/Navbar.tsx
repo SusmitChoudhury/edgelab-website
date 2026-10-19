@@ -139,33 +139,45 @@ export const Navbar: React.FC = () => {
 
       {/* ── Mobile / Tablet Full-Screen Drawer (< 1024px) ── */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[60px] bottom-0 bg-[#122311]/98 backdrop-blur-2xl border-t border-[#444F24] p-6 flex flex-col justify-between overflow-y-auto z-50 animate-fadeIn">
-          <div className="space-y-3 pt-2">
-            <div className="text-xs uppercase tracking-widest text-[#AD8820] font-mono mb-3 font-bold">
-              Navigation Menu
+        <div className="lg:hidden fixed inset-x-0 top-full h-[calc(100dvh-100%)] bg-[#0D0F14]/98 backdrop-blur-2xl border-t border-white/10 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto z-50 animate-fadeIn pb-28">
+          <div className="space-y-2 pt-2">
+            <div className="text-[11px] uppercase tracking-widest text-[#AD8820] font-mono mb-3 font-bold flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#AD8820] animate-pulse" />
+              <span>Navigation Menu</span>
             </div>
             {NAVIGATION_LINKS.map((link) => {
               const isActive = pathname === link.href;
+              const isCalculator = link.href === '/cloudflare-workers-calculator';
               return (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block text-xl font-sans font-bold py-2.5 border-b border-[#1e341c] transition-colors ${
-                    isActive ? 'text-[#AD8820] pl-2 border-l-2 border-l-[#AD8820]' : 'text-white hover:text-[#B6BBD9]'
+                  className={`flex items-center justify-between text-lg font-sans font-bold py-3 px-3 rounded-xl border border-transparent transition-all ${
+                    isActive 
+                      ? 'text-white bg-[#1A1D24] border-white/10' 
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
-                  {link.name}
+                  <div className="flex items-center gap-2.5">
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#AD8820]" />}
+                    <span>{link.name}</span>
+                  </div>
+                  {isCalculator && (
+                    <span className="px-2 py-0.5 rounded-full bg-[#F6821F] text-white text-[10px] font-mono font-bold tracking-wider uppercase">
+                      18% OFF
+                    </span>
+                  )}
                 </Link>
               );
             })}
           </div>
 
-          <div className="pt-6 space-y-3 pb-8">
+          <div className="pt-6 space-y-3 pb-6 border-t border-white/10">
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3.5 text-sm font-bold text-white bg-[#444F24] hover:bg-[#52602c] rounded-xl shadow-md transition-all"
+              className="w-full flex items-center justify-center gap-2 py-3.5 text-sm font-bold text-white bg-[#444F24] hover:bg-[#53612c] rounded-xl shadow-md transition-all border border-[#52602c]"
             >
               <span>Discuss Your Project</span>
               <ArrowRight className="w-4 h-4 text-[#B6BBD9]" />
@@ -175,13 +187,13 @@ export const Navbar: React.FC = () => {
               href={getWhatsAppUrl("Hi EdgeLab, I want to discuss building our digital presence.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 text-sm font-mono font-medium text-white bg-[#1e341c] border border-[#444F24] rounded-xl hover:bg-[#254222] transition-all"
+              className="w-full flex items-center justify-center gap-2 py-3.5 text-sm font-mono font-medium text-white bg-[#181B24] border border-white/10 rounded-xl hover:bg-[#232733] transition-all"
             >
               <MessageSquare className="w-4 h-4 text-[#AD8820]" />
               <span>Talk on WhatsApp</span>
             </a>
 
-            <div className="flex items-center justify-center gap-4 pt-3 text-xs font-mono text-[#B6BBD9]">
+            <div className="flex items-center justify-center gap-4 pt-2 text-xs font-mono text-[#B6BBD9]">
               <a href={`tel:${CONTACT.phoneRaw}`} className="flex items-center gap-1 hover:text-white">
                 <Phone className="w-3.5 h-3.5 text-[#AD8820]" />
                 <span>{CONTACT.phoneDisplay}</span>
@@ -194,6 +206,30 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* ── Mobile Sticky Bottom Conversion Bar (< 768px) ── */}
+      <div 
+        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0D0F14]/95 backdrop-blur-xl border-t border-white/10 px-4 py-2.5 flex items-center justify-between gap-3 shadow-[0_-10px_25px_rgba(0,0,0,0.4)] pb-safe"
+        aria-label="Mobile Quick Action Bar"
+      >
+        <a
+          href={getWhatsAppUrl("Hi EdgeLab, I'd like to discuss a project on WhatsApp.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-3 rounded-full bg-[#181B24] border border-white/10 text-white text-xs font-mono font-semibold active:scale-95 transition-all shadow-xs"
+        >
+          <MessageSquare className="w-4 h-4 text-[#AD8820]" />
+          <span>WhatsApp</span>
+        </a>
+
+        <Link
+          href="/contact"
+          className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-3 rounded-full bg-[#444F24] border border-[#52602c] text-white text-xs font-bold active:scale-95 transition-all shadow-md"
+        >
+          <span>Discuss Project</span>
+          <ArrowRight className="w-3.5 h-3.5 text-[#B6BBD9]" />
+        </Link>
+      </div>
     </header>
   );
 };

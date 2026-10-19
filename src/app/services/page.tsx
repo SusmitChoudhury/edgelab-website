@@ -115,7 +115,7 @@ export default function ServicesPage() {
                       href={getWhatsAppUrl(`Hi EdgeLab, I'd like to discuss ${service.title} for my project.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold transition-all shadow-xs"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[46px] rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold transition-all shadow-xs active:scale-[0.98]"
                     >
                       <MessageSquare className="w-3.5 h-3.5 text-[#AD8820]" />
                       <span>{service.cta}</span>

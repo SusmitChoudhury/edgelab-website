@@ -83,13 +83,13 @@ export const SelectedWorkSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="p-6 sm:p-8 pt-0 flex flex-wrap items-center gap-3">
+              {/* Action Buttons — Responsive Touch Stacking */}
+              <div className="p-5 sm:p-8 pt-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-bold transition-all shadow-xs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-bold transition-all shadow-xs active:scale-[0.98]"
                 >
                   <span>View Live Experience</span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#AD8820]" />
@@ -100,7 +100,7 @@ export const SelectedWorkSection: React.FC = () => {
                     href={project.adminDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#F5F7FC] hover:bg-[#EEF1F8] text-[#212413] border border-[#DCE1EE] hover:border-[#B6BBD9] text-xs font-semibold transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-[#F5F7FC] hover:bg-[#EEF1F8] text-[#212413] border border-[#DCE1EE] hover:border-[#B6BBD9] text-xs font-semibold transition-all active:scale-[0.98]"
                   >
                     <span>View Admin Portal Demo</span>
                     <ExternalLink className="w-3.5 h-3.5 text-[#90844A]" />

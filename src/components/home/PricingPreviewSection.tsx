@@ -27,7 +27,7 @@ export const PricingPreviewSection: React.FC = () => {
 
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-semibold tracking-wide transition-all self-start md:self-end shrink-0 shadow-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[44px] rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-semibold tracking-wide transition-all self-start md:self-end shrink-0 shadow-sm active:scale-[0.98]"
           >
             <span>Compare Full Pricing Details</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#B6BBD9]" />
@@ -143,7 +143,7 @@ export const PricingPreviewSection: React.FC = () => {
                     href={getWhatsAppUrl(`Hi EdgeLab, I'd like to choose the ${tier.name} package (${tier.price}).`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold transition-all shadow-xs ${
+                    className={`w-full min-h-[46px] inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs font-bold transition-all shadow-xs active:scale-[0.98] ${
                       isHighlighted
                         ? 'bg-[#444F24] hover:bg-[#53612c] text-white border border-[#53612c]'
                         : 'bg-[#F5F7FC] hover:bg-[#EEF1F8] text-[#212413] border border-[#DCE1EE] hover:border-[#B6BBD9]'

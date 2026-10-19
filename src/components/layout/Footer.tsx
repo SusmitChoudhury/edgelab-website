@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#0D0F14] text-[#B6BBD9] border-t border-white/10 pt-20 pb-12 relative overflow-hidden">
+    <footer className="bg-[#0D0F14] text-[#B6BBD9] border-t border-white/10 pt-20 pb-28 md:pb-12 relative overflow-hidden">
       {/* Multi-tone Ambient Wash (Mist + Harvest + Forest) */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#AD8820]/8 rounded-full blur-[160px] pointer-events-none" />
 

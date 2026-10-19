@@ -136,10 +136,10 @@ Hi EdgeLab, I ran my backend estimates on your calculator and want to discuss ho
               Calculate your estimated daily Worker requests and explore whether Cloudflare Workers Free may suit your website&apos;s workload. Transparent planning with zero sales hype.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a
                 href="#calculator-controls"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-sm font-semibold tracking-wide transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-[#B6BBD9]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 min-h-[48px] rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-sm font-semibold tracking-wide transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-[#B6BBD9] active:scale-[0.98]"
               >
                 <span>Calculate My Requests</span>
                 <ArrowRight className="w-4 h-4 text-[#B6BBD9]" />
@@ -149,7 +149,7 @@ Hi EdgeLab, I ran my backend estimates on your calculator and want to discuss ho
                 href={getWhatsAppUrl("Hi EdgeLab, I'd like to talk about hosting our website on Cloudflare Workers.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#182e16] hover:bg-[#203a1e] border border-[#444F24] text-white text-sm font-medium transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-full bg-[#182e16] hover:bg-[#203a1e] border border-[#444F24] text-white text-sm font-medium transition-all active:scale-[0.98]"
               >
                 <span>Talk to EdgeLab</span>
               </a>
@@ -921,12 +921,12 @@ Hi EdgeLab, I ran my backend estimates on your calculator and want to discuss ho
             Get an exact technical assessment and deployment roadmap from EdgeLab engineers. No guesswork, no hidden hosting fees.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
             <a
               href={getWhatsAppUrl(generateWhatsAppMessage())}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-sm font-semibold tracking-wide transition-all shadow-lg"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 min-h-[48px] rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-sm font-semibold tracking-wide transition-all shadow-lg active:scale-[0.98]"
             >
               <span>Discuss My Website on WhatsApp</span>
               <ArrowRight className="w-4 h-4 text-[#B6BBD9]" />
@@ -934,7 +934,7 @@ Hi EdgeLab, I ran my backend estimates on your calculator and want to discuss ho
 
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1e341c] hover:bg-[#284426] border border-[#444F24] text-white text-sm font-medium transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-full bg-[#1e341c] hover:bg-[#284426] border border-[#444F24] text-white text-sm font-medium transition-all active:scale-[0.98]"
             >
               <span>Explore All Packages</span>
             </Link>

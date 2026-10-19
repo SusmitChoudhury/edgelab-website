@@ -228,7 +228,7 @@ Hi EdgeLab, I have submitted our project brief and would like to connect with a 
                       placeholder="e.g. Vikram Singhania"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-base sm:text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
                     />
                   </div>
 
@@ -242,7 +242,7 @@ Hi EdgeLab, I have submitted our project brief and would like to connect with a 
                       placeholder="e.g. Aurelia Atelier"
                       value={business}
                       onChange={(e) => setBusiness(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-base sm:text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
                     />
                   </div>
                 </div>
@@ -258,7 +258,7 @@ Hi EdgeLab, I have submitted our project brief and would like to connect with a 
                       placeholder="+91 98765 43210"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-base sm:text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
                     />
                   </div>
 
@@ -271,7 +271,7 @@ Hi EdgeLab, I have submitted our project brief and would like to connect with a 
                       placeholder="partner@company.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-base sm:text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
                     />
                   </div>
                 </div>
@@ -335,7 +335,7 @@ Hi EdgeLab, I have submitted our project brief and would like to connect with a 
                     placeholder="Tell us about your brand, current challenges, and goals for this project..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#D8E4DC] text-base sm:text-sm text-[#0C120E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#1A281E] focus:ring-1 focus:ring-[#1A281E]"
                   />
                 </div>
 

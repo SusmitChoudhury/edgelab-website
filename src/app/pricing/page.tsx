@@ -193,13 +193,13 @@ export default function PricingPage() {
                     href={getWhatsAppUrl(`Hi EdgeLab, I'd like to book the ${tier.name} package (${displayPrice}).`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-3 px-4 rounded-xl text-xs font-bold font-mono text-center transition-all block shadow-xs ${
+                    className={`w-full min-h-[46px] inline-flex items-center justify-center py-3.5 px-4 rounded-xl text-xs font-bold font-mono text-center transition-all shadow-xs active:scale-[0.98] ${
                       isHighlighted
                         ? 'bg-[#444F24] hover:bg-[#52602c] text-white border border-[#52602c]'
                         : 'bg-white hover:bg-[#F2F5ED] text-[#212413] border border-[#E4E8DE] hover:border-[#444F24]'
                     }`}
                   >
-                    {tier.cta} →
+                    <span>{tier.cta} →</span>
                   </a>
                 </div>
               </div>
@@ -224,7 +224,7 @@ export default function PricingPage() {
 
           <Link
             href="/cloudflare-workers-calculator"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold tracking-wide transition-all shrink-0 border border-[#52602c]"
+            className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[46px] rounded-full bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold tracking-wide transition-all shrink-0 border border-[#52602c] active:scale-[0.98]"
           >
             <span>Launch Cloudflare Calculator</span>
             <ArrowRight className="w-4 h-4 text-[#B6BBD9]" />
