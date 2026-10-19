@@ -26,12 +26,12 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#122311] text-[#B6BBD9] border-t border-[#444F24] pt-20 pb-12 relative overflow-hidden">
-      {/* Subtle Forest Ambient Wash */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#444F24]/20 rounded-full blur-[140px] pointer-events-none" />
+    <footer className="bg-[#0D0F14] text-[#B6BBD9] border-t border-white/10 pt-20 pb-12 relative overflow-hidden">
+      {/* Multi-tone Ambient Wash (Mist + Harvest + Forest) */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#AD8820]/8 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-[#444F24]/40">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
           {/* Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <BrandLogo size="lg" href="/" withTagline={true} />

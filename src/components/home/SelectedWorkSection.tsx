@@ -8,29 +8,30 @@ import { SELECTED_PROJECTS } from '@/config/site';
 
 export const SelectedWorkSection: React.FC = () => {
   return (
-    <section className="py-20 sm:py-28 bg-[#F9FAF8] text-[#212413] border-b border-[#E4E8DE]">
+    <section className="py-20 sm:py-28 bg-[#F2F4FA] text-[#212413] border-b border-[#DDE2EE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E4E8DE] text-[#444F24] text-xs font-mono font-semibold uppercase tracking-wider mb-4">
-              02 &bull; Selected Work
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#B6BBD9]/60 text-[#212413] text-xs font-mono font-semibold uppercase tracking-wider mb-4 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#AD8820]" />
+              <span>02 &bull; Selected Work</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif text-[#212413] tracking-tight leading-[1.12]">
               Real Products. Live Productions.
             </h2>
-            <p className="text-base text-[#565F45] mt-4 leading-relaxed font-light">
+            <p className="text-base text-gray-600 mt-4 leading-relaxed font-light">
               We design and build bespoke web platforms, operational portals, and digital storefronts engineered for real business use.
             </p>
           </div>
 
           <Link
             href="/work"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#122311] hover:bg-[#444F24] text-white text-xs font-semibold tracking-wide transition-all self-start md:self-end shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-semibold tracking-wide transition-all self-start md:self-end shrink-0 shadow-sm"
           >
             <span>Explore All Projects</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#AD8820]" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#B6BBD9]" />
           </Link>
         </div>
 
@@ -39,11 +40,11 @@ export const SelectedWorkSection: React.FC = () => {
           {SELECTED_PROJECTS.map((project) => (
             <div
               key={project.id}
-              className="rounded-3xl bg-white border border-[#E4E8DE] hover:border-[#444F24] transition-all duration-300 overflow-hidden shadow-xs hover:shadow-md flex flex-col justify-between"
+              className="rounded-3xl bg-white border border-[#DCE1EE] hover:border-[#AD8820]/70 transition-all duration-300 overflow-hidden shadow-xs hover:shadow-xl flex flex-col justify-between"
             >
               <div>
                 {/* Project Media Visual */}
-                <div className="relative aspect-[16/10] bg-[#122311] overflow-hidden group">
+                <div className="relative aspect-[16/10] bg-[#16181F] overflow-hidden group">
                   <Image
                     src={project.coverImage}
                     alt={project.title}
@@ -51,14 +52,14 @@ export const SelectedWorkSection: React.FC = () => {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#122311]/90 backdrop-blur-xs text-[10px] font-mono font-bold text-[#AD8820] uppercase tracking-wider">
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#16181F]/90 backdrop-blur-xs text-[10px] font-mono font-bold text-[#AD8820] uppercase tracking-wider border border-white/10">
                     {project.badge}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 sm:p-8">
-                  <div className="text-xs font-mono text-[#90844A] uppercase tracking-wider mb-2">
+                  <div className="text-xs font-mono text-[#90844A] uppercase tracking-wider mb-2 font-semibold">
                     {project.category}
                   </div>
 
@@ -66,15 +67,15 @@ export const SelectedWorkSection: React.FC = () => {
                     {project.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#565F45] leading-relaxed mb-6 font-light">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-light">
                     {project.description}
                   </p>
 
                   {/* Highlights */}
-                  <div className="space-y-2 pt-4 border-t border-[#E4E8DE] mb-6">
+                  <div className="space-y-2 pt-4 border-t border-[#EEF1F8] mb-6">
                     {project.highlights.slice(0, 3).map((hl, hIdx) => (
                       <div key={hIdx} className="flex items-start gap-2 text-xs text-[#212413]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#444F24] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#AD8820] shrink-0 mt-0.5" />
                         <span>{hl}</span>
                       </div>
                     ))}
@@ -88,7 +89,7 @@ export const SelectedWorkSection: React.FC = () => {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#444F24] hover:bg-[#52602c] text-white text-xs font-bold transition-all shadow-xs"
+                  className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#444F24] hover:bg-[#53612c] text-white text-xs font-bold transition-all shadow-xs"
                 >
                   <span>View Live Experience</span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#AD8820]" />
@@ -99,10 +100,10 @@ export const SelectedWorkSection: React.FC = () => {
                     href={project.adminDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#F2F5ED] hover:bg-[#E4E8DE] text-[#444F24] border border-[#C2D5C8] text-xs font-semibold transition-all"
+                    className="inline-flex items-center gap-2 py-3 px-5 rounded-xl bg-[#F5F7FC] hover:bg-[#EEF1F8] text-[#212413] border border-[#DCE1EE] hover:border-[#B6BBD9] text-xs font-semibold transition-all"
                   >
                     <span>View Admin Portal Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3.5 h-3.5 text-[#90844A]" />
                   </a>
                 )}
               </div>
