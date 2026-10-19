@@ -5,7 +5,6 @@ import {
   MessageSquare,
   X,
   Send,
-  ArrowRight,
   Sparkles,
   Bot,
   User,
@@ -15,7 +14,7 @@ import {
   CheckCircle2,
   ExternalLink,
 } from 'lucide-react';
-import { getWhatsAppUrl, CONTACT } from '@/config/site';
+import { getWhatsAppUrl } from '@/config/site';
 
 // ─────────────────────────────────────────────────
 // Types
@@ -68,7 +67,7 @@ const FormattedMessage: React.FC<{
           <tbody>
             {dataRows.map((r, rIdx) => {
               const cells = parseCells(r);
-              const isRecommended = r.includes('RECOMMENDED') || r.includes('⭐') || r.includes('8,999');
+              const isRecommended = r.includes('RECOMMENDED') || r.includes('⭐') || r.includes('14,999') || r.includes('Business Plus');
               return (
                 <tr
                   key={rIdx}
@@ -225,7 +224,7 @@ const FormattedMessage: React.FC<{
   }
 
   // If plans or pricing were mentioned, append quick CTA action chips
-  const hasPlans = content.includes('Starter') || content.includes('Business Plan') || content.includes('₹8,999');
+  const hasPlans = content.includes('Starter') || content.includes('Business Plus') || content.includes('14,999') || content.includes('EdgeCare');
 
   return (
     <div>
@@ -234,13 +233,13 @@ const FormattedMessage: React.FC<{
       {hasPlans && (
         <div className="mt-2.5 pt-2 border-t border-[#1A281E]/10 flex flex-wrap gap-1.5">
           <button
-            onClick={() => onQuickAction('I want to start with the Business Plan (₹8,999)')}
+            onClick={() => onQuickAction('I want to start with the Business Plus Package (₹14,999)')}
             className="px-2.5 py-1 rounded-full text-[10.5px] font-bold bg-[#162319] text-white hover:bg-[#25392B] transition-all flex items-center gap-1 shadow-2xs"
           >
-            <span>⭐ Lock In Business Plan (₹8,999)</span>
+            <span>⭐ Choose Business Plus (₹14,999)</span>
           </button>
           <a
-            href={getWhatsAppUrl("Hi EdgeLab, I'd like to get started with the Business Plan (₹8,999).")}
+            href={getWhatsAppUrl("Hi EdgeLab, I'd like to get started with the Business Plus Package (₹14,999).")}
             target="_blank"
             rel="noopener noreferrer"
             className="px-2.5 py-1 rounded-full text-[10.5px] font-semibold bg-[#EBF7EF] text-[#047857] border border-[#A7F3D0] hover:bg-[#D8F0E1] transition-all flex items-center gap-1"

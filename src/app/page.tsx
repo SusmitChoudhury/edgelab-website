@@ -1,51 +1,50 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Hero } from '@/components/home/Hero';
-import { IntroTransition } from '@/components/home/IntroTransition';
-import { ServicesSystem } from '@/components/home/ServicesSystem';
-import { SignatureEcosystem } from '@/components/home/SignatureEcosystem';
-import { SelectedWork } from '@/components/home/SelectedWork';
-import { ContentReels } from '@/components/home/ContentReels';
-import { EditorialPhotography } from '@/components/home/EditorialPhotography';
-import { ProcessTimeline } from '@/components/home/ProcessTimeline';
-import { AboutWhyWeExist } from '@/components/home/AboutWhyWeExist';
-import { ProjectEnquiry } from '@/components/home/ProjectEnquiry';
-import { FinalCTA } from '@/components/home/FinalCTA';
+import { ServicesOverview } from '@/components/home/ServicesOverview';
+import { SelectedWorkSection } from '@/components/home/SelectedWorkSection';
+import { HowWeWorkSection } from '@/components/home/HowWeWorkSection';
+import { PricingPreviewSection } from '@/components/home/PricingPreviewSection';
+import { CloudflareCampaignSection } from '@/components/home/CloudflareCampaignSection';
+import { WorkspaceSection } from '@/components/home/WorkspaceSection';
+import { AboutPreviewSection } from '@/components/home/AboutPreviewSection';
+import { ContactCTASection } from '@/components/home/ContactCTASection';
+
+export const metadata: Metadata = {
+  title: 'EdgeLab — Build Your Digital Presence. Grow Your Business.',
+  description:
+    'Websites, content creation and performance marketing designed to help your business get noticed and turn attention into enquiries.',
+};
 
 export default function HomePage() {
   return (
     <>
-      {/* 01 — Hero: 3D Business Ecosystem & Cinematic Statement */}
+      {/* 01 — Hero Section: Build Your Digital Presence. Grow Your Business. */}
       <Hero />
 
-      {/* 02 — Introduction: The Connected Brand Experience */}
-      <IntroTransition />
+      {/* 02 — Services Overview: 10 Actual EdgeLab Service Disciplines */}
+      <ServicesOverview />
 
-      {/* 03 — What We Build: Interactive 7-Service System */}
-      <ServicesSystem />
+      {/* 03 — Selected Work: Real Projects & Working Production Demos */}
+      <SelectedWorkSection />
 
-      {/* 04 — Signature 3D: The Digital Ecosystem */}
-      <SignatureEcosystem />
+      {/* 04 — How EdgeLab Works: 5-Step Delivery Methodology */}
+      <HowWeWorkSection />
 
-      {/* 05 — Selected Real Work: Smart Restaurant & NOIRÉ Case Studies */}
-      <SelectedWork />
+      {/* 05 — Pricing Preview: 4 Approved Packages & Running-Cost Benefits */}
+      <PricingPreviewSection />
 
-      {/* 06 — Content & Reels: 9:16 Vertical Video Production */}
-      <ContentReels />
+      {/* 06 — Cloudflare Workers Campaign: Free Tier Request Estimator Teaser */}
+      <CloudflareCampaignSection />
 
-      {/* 07 — Editorial Photography: Unified Studio Gallery */}
-      <EditorialPhotography />
+      {/* 07 — Workspace & How We Actually Work: Inside the EdgeLab Lab & Team */}
+      <WorkspaceSection />
 
-      {/* 08 — How We Work: 4-Step Milestone Architecture */}
-      <ProcessTimeline />
+      {/* 08 — About EdgeLab Preview: Mission & Verified Direct Contacts */}
+      <AboutPreviewSection />
 
-      {/* 09 — Why EdgeLab Exists: Core Disciplines & Craftsmanship */}
-      <AboutWhyWeExist />
-
-      {/* 10 — Project Consultation & Briefing */}
-      <ProjectEnquiry />
-
-      {/* 11 — Cinematic Final CTA */}
-      <FinalCTA />
+      {/* 09 — Contact CTA: Direct WhatsApp & Project Consultation */}
+      <ContactCTASection />
     </>
   );
 }

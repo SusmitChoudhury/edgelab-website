@@ -7,35 +7,27 @@
     --font-serif: 'Instrument Serif', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Ultra-Premium Tri-Color Palette: Dark Olive, Pure White, Crisp Black/Charcoal */
+    /* EdgeLab Official 6-Color Palette */
+    --color-mist: #B6BBD9;
+    --color-harvest: #AD8820;
+    --color-terrain: #90844A;
+    --color-forest: #444F24;
+    --color-shadow: #212413;
+    --color-deep: #122311;
+    --color-cf-orange: #F6821F;
+
+    /* Theme Surfaces & Layout Tokens */
     --color-bg-primary: #FFFFFF;
     --color-bg-subtle: #F9FAF8;
-    --color-bg-olive-tint: #F0F4F1;
-    --color-bg-olive-card: #E8F0EA;
+    --color-bg-mist-tint: #F3F5FA;
+    --color-bg-forest-tint: #F2F5ED;
+    --color-border-light: #E4E8DE;
 
-    /* Dark Olive Tones */
-    --color-olive-darkest: #121C15;
-    --color-olive-deep: #1A281E;
-    --color-olive-medium: #263A2D;
-    --color-olive-surface: #344E3E;
-    --color-olive-accent: #446450;
-    --color-olive-light: #5A7E68;
-    --color-olive-border: #D8E4DC;
-    --color-olive-soft: #E5EDE8;
-
-    /* Pure White & Studio Porcelain */
-    --color-white: #FFFFFF;
-    --color-porcelain: #FBFDFB;
-
-    /* Crisp Black & Charcoal for Typography */
-    --color-text-headline: #0C120E;
-    --color-text-body: #1F2C24;
-    --color-text-muted: #52665A;
-    --color-text-subtle: #798E81;
-
-    /* Vibrant Micro-Accents */
-    --color-accent-emerald: #10B981;
-    --color-accent-vibrant: #059669;
+    /* Typography Mappings */
+    --color-text-headline: #212413;
+    --color-text-body: #212413;
+    --color-text-muted: #565F45;
+    --color-text-subtle: #7A846B;
   }
 
   html {
@@ -44,19 +36,19 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #FFFFFF;
-    color: #0C120E;
+    color: #212413;
   }
 
   body {
     background-color: #FFFFFF;
-    color: #0C120E;
+    color: #212413;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
     font-family: 'Instrument Serif', Georgia, serif;
-    color: #0C120E;
+    color: #212413;
     letter-spacing: -0.02em;
   }
 
@@ -97,17 +89,52 @@
 }
 
 /* Glassmorphism & Subtle Accents */
-.glass-panel-olive {
-  background: rgba(255, 255, 255, 0.92);
+.glass-panel-mist {
+  background: rgba(182, 187, 217, 0.15);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(216, 228, 220, 0.9);
+  border: 1px solid rgba(182, 187, 217, 0.35);
 }
 
-.glass-panel-dark-olive {
-  background: rgba(26, 40, 30, 0.96);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(52, 78, 62, 0.6);
+.glass-panel-deep {
+  background: rgba(18, 35, 17, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(68, 79, 36, 0.35);
 }
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(228, 232, 222, 0.9);
+}
+
+/* EdgeLab Palette Utility Classes */
+.bg-deep { background-color: #122311; }
+.text-deep { color: #122311; }
+.border-deep { border-color: #122311; }
+
+.bg-forest { background-color: #444F24; }
+.text-forest { color: #444F24; }
+.border-forest { border-color: #444F24; }
+
+.bg-shadow { background-color: #212413; }
+.text-shadow { color: #212413; }
+.border-shadow { border-color: #212413; }
+
+.bg-harvest { background-color: #AD8820; }
+.text-harvest { color: #AD8820; }
+.border-harvest { border-color: #AD8820; }
+
+.bg-terrain { background-color: #90844A; }
+.text-terrain { color: #90844A; }
+.border-terrain { border-color: #90844A; }
+
+.bg-mist { background-color: #B6BBD9; }
+.text-mist { color: #B6BBD9; }
+.border-mist { border-color: #B6BBD9; }
+
+.bg-cf-orange { background-color: #F6821F; }
+.text-cf-orange { color: #F6821F; }
+.border-cf-orange { border-color: #F6821F; }
 
 /* Custom Keyframes */
 @keyframes spin-slow {

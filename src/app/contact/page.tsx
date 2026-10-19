@@ -22,21 +22,24 @@ function ContactFormInner() {
   const selectedPackageFromQuery = searchParams.get('package');
 
   const selectableServices = [
-    'Website Engineering',
-    'E-Commerce & Online Store',
-    'Custom Digital System / Operations',
-    'Social Media Management',
-    'Commercial Studio Photography',
-    '4K Reels & Video Production',
-    'Website Care & Management',
-    'Local Search & SEO',
+    'Website Design & Development',
+    'E-Commerce Websites',
+    'Business Systems & Integrations',
+    'Brand & Product Photography',
+    'Reels & Short-Form Video',
+    'Content Strategy & Production',
+    'Social Media Creatives & Management',
+    'Google Business Profile Support',
+    'Performance Marketing',
+    'Website Maintenance & Technical Support',
   ];
 
   const budgetTiers = [
-    'Starter (₹4,999 – ₹9,999)',
-    'Business (₹10,000 – ₹25,000)',
-    'Growth (₹25,000 – ₹50,000)',
-    'Custom Enterprise (₹50,000+)',
+    'Starter (₹4,999 one-time)',
+    'Business Plus (₹14,999 — 3 Mo Free Care)',
+    'EdgeCare (₹24,999 — 6 Mo Free Care)',
+    'EdgeLab Ultimate (₹37,999 — Lifetime Free Care)',
+    'Custom Project Scope',
   ];
 
   const [name, setName] = useState('');
@@ -84,22 +87,25 @@ Hi EdgeLab, I have submitted our project brief and would like to connect with a 
   };
 
   return (
-    <div className="pt-32 pb-24 bg-white text-[#0C120E] min-h-screen">
-      {/* Radiant Olive Ambient Wash */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-[#E8F0EA] via-[#F0F4F1]/40 to-transparent rounded-full blur-[130px] pointer-events-none" />
+    <div className="pt-32 pb-24 bg-white text-[#212413] min-h-screen">
+      {/* Radiant Forest Ambient Wash */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-[#F2F5ED] via-[#F9FAF8] to-transparent rounded-full blur-[140px] pointer-events-none" 
+        aria-hidden="true"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Page Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F0EA] border border-[#C2D5C8] text-xs font-mono font-bold uppercase tracking-wider text-[#1A281E] mb-4 shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#263A2D] animate-pulse" />
-            <span>START A PROJECT</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F2F5ED] border border-[#C2D5C8] text-xs font-mono font-bold uppercase tracking-wider text-[#444F24] mb-4 shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#AD8820] animate-pulse" />
+            <span>DISCUSS YOUR PROJECT</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#0C120E] tracking-tight leading-[1.05] mb-6">
-            Direct access to our <span className="italic font-light text-[#263A2D]">directors.</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#212413] tracking-tight leading-[1.05] mb-6">
+            Direct access to our <span className="italic font-light text-[#444F24]">directors.</span>
           </h1>
-          <p className="text-base sm:text-lg text-[#52665A] leading-relaxed">
-            Every inquiry is routed directly to an active EdgeLab Project Director. We respond within 30 minutes with an honest evaluation and actionable timeline.
+          <p className="text-base sm:text-lg text-[#565F45] leading-relaxed font-light">
+            Every inquiry connects directly to our team. Message us on WhatsApp or share your brief below for an honest evaluation and actionable timeline.
           </p>
         </div>
 
